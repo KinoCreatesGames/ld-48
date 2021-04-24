@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "5";
+	app.meta.h["build"] = "6";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "LD-48";
 	app.meta.h["name"] = "LD-48";
@@ -47580,6 +47580,10 @@ game_char_Enemy.prototype = $extend(game_char_Actor.prototype,{
 	,__class__: game_char_Enemy
 });
 var game_char_Player = function(x,y,actorData) {
+	this.hasHook = false;
+	this.hasWizardBag = false;
+	this.hasShield = false;
+	this.hasSword = false;
 	game_char_Actor.call(this,x,y,actorData);
 };
 $hxClasses["game.char.Player"] = game_char_Player;
@@ -47589,8 +47593,26 @@ game_char_Player.prototype = $extend(game_char_Actor.prototype,{
 	setupGraphics: function() {
 		this.makeGraphic(8,8,-1);
 		this.createVirtualPad();
+		this.createSword();
 	}
 	,createVirtualPad: function() {
+	}
+	,createSword: function() {
+		var pos = this.getPosition();
+		var size = 8;
+		this.swordHitBox = new flixel_FlxSprite(pos.x,pos.y);
+		this.swordHitBox.makeGraphic(size,size,-37993);
+		flixel_FlxG.game._state.add(this.swordHitBox);
+	}
+	,update: function(elapsed) {
+		game_char_Actor.prototype.update.call(this,elapsed);
+		if(this.hasSword) {
+			this.processSwordPowerUp(elapsed);
+		}
+	}
+	,processSwordPowerUp: function(elapsed) {
+		var attack = flixel_FlxG.keys.checkKeyArrayState([90],2);
+		var attack1 = attack;
 	}
 	,updateMovement: function(elapsed) {
 		game_char_Actor.prototype.updateMovement.call(this,elapsed);
@@ -47702,6 +47724,42 @@ game_objects_Collectible.__name__ = "game.objects.Collectible";
 game_objects_Collectible.__super__ = flixel_FlxSprite;
 game_objects_Collectible.prototype = $extend(flixel_FlxSprite.prototype,{
 	__class__: game_objects_Collectible
+});
+var game_objects_Hook = function(X,Y,SimpleGraphic) {
+	game_objects_Collectible.call(this,X,Y,SimpleGraphic);
+};
+$hxClasses["game.objects.Hook"] = game_objects_Hook;
+game_objects_Hook.__name__ = "game.objects.Hook";
+game_objects_Hook.__super__ = game_objects_Collectible;
+game_objects_Hook.prototype = $extend(game_objects_Collectible.prototype,{
+	__class__: game_objects_Hook
+});
+var game_objects_Shield = function(X,Y,SimpleGraphic) {
+	game_objects_Collectible.call(this,X,Y,SimpleGraphic);
+};
+$hxClasses["game.objects.Shield"] = game_objects_Shield;
+game_objects_Shield.__name__ = "game.objects.Shield";
+game_objects_Shield.__super__ = game_objects_Collectible;
+game_objects_Shield.prototype = $extend(game_objects_Collectible.prototype,{
+	__class__: game_objects_Shield
+});
+var game_objects_Sword = function(X,Y,SimpleGraphic) {
+	game_objects_Collectible.call(this,X,Y,SimpleGraphic);
+};
+$hxClasses["game.objects.Sword"] = game_objects_Sword;
+game_objects_Sword.__name__ = "game.objects.Sword";
+game_objects_Sword.__super__ = game_objects_Collectible;
+game_objects_Sword.prototype = $extend(game_objects_Collectible.prototype,{
+	__class__: game_objects_Sword
+});
+var game_objects_WizardBag = function(X,Y,SimpleGraphic) {
+	game_objects_Collectible.call(this,X,Y,SimpleGraphic);
+};
+$hxClasses["game.objects.WizardBag"] = game_objects_WizardBag;
+game_objects_WizardBag.__name__ = "game.objects.WizardBag";
+game_objects_WizardBag.__super__ = game_objects_Collectible;
+game_objects_WizardBag.prototype = $extend(game_objects_Collectible.prototype,{
+	__class__: game_objects_WizardBag
 });
 var game_states_BaseTileState = function(MaxSize) {
 	flixel_FlxState.call(this,MaxSize);
@@ -47839,6 +47897,21 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 		flixel_FlxG.overlap(this.player,this.collectibleGrp,$bind(this,this.playerTouchCollectible));
 	}
 	,playerTouchCollectible: function(player,collectible) {
+		var collectibleClass = js_Boot.getClass(collectible);
+		switch(collectibleClass) {
+		case game_objects_Hook:
+			player.hasHook = true;
+			break;
+		case game_objects_Shield:
+			player.hasShield = true;
+			break;
+		case game_objects_Sword:
+			player.hasSword = true;
+			break;
+		case game_objects_WizardBag:
+			player.hasWizardBag = true;
+			break;
+		}
 	}
 	,processLevel: function(elapsed) {
 		game_states_BaseTileState.prototype.processLevel.call(this,elapsed);
@@ -66730,7 +66803,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 27817;
+	this.version = 824539;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
