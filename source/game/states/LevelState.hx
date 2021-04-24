@@ -1,5 +1,6 @@
 package game.states;
 
+import game.ui.PlayerHUD;
 import game.objects.Shield;
 import game.objects.Sword;
 import game.objects.Hook;
@@ -22,13 +23,16 @@ enum abstract RegionId(Int) from Int to Int {
 class LevelState extends BaseTileState {
 	// Single Objects
 	public var player:Player;
+	public var playerHUD:PlayerHUD;
 
 	// Groups
 	public var collectibleGrp:FlxTypedGroup<Collectible>;
+	public var enemyBulletGrp:FlxTypedGroup<Bullet>;
 
 	override public function createGroups() {
 		super.createGroups();
 		createSounds();
+		createEnemyGroups();
 		createPlayer();
 	}
 
@@ -36,11 +40,16 @@ class LevelState extends BaseTileState {
 		super.addGroups();
 		// add(regionGrp);
 		add(player);
+		add(enemyBulletGrp);
 		// add(packageGrp);
 		// add(playerHUD);
 	}
 
 	public function createSounds() {}
+
+	public function createEnemyGroups() {
+		enemyBulletGrp = new FlxTypedGroup<Bullet>(50);
+	}
 
 	public function createPlayer() {
 		player = new Player(0, 0, null);

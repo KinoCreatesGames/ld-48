@@ -10,7 +10,7 @@ import flixel.util.FlxAxes;
 class TitleState extends FlxState {
 	public var pressStartText:FlxText;
 	public var playButton:TextButton;
-	public var continueButton:TextButton;
+
 	public var optionsButton:TextButton;
 	public var creditsButton:TextButton;
 	public var completeFadeStart:Bool;
@@ -55,13 +55,6 @@ class TitleState extends FlxState {
 		playButton.screenCenter();
 		playButton.y += y;
 		y += 40;
-		continueButton = new TextButton(0, 0, Globals.TEXT_CONTINUE,
-			Globals.FONT_N, clickContinue);
-		continueButton.hoverColor = KColor.BURGUNDY;
-		continueButton.clickColor = KColor.BURGUNDY;
-		continueButton.screenCenter();
-		continueButton.y += y;
-		y += 40;
 		optionsButton = new TextButton(0, 0, Globals.TEXT_OPTIONS,
 			Globals.FONT_N, clickOptions);
 		optionsButton.hoverColor = KColor.BURGUNDY;
@@ -88,14 +81,11 @@ class TitleState extends FlxState {
 
 		playButton.canClick = false;
 		playButton.alpha = 0;
-		continueButton.canClick = false;
-		continueButton.alpha = 0;
 		optionsButton.canClick = false;
 		optionsButton.alpha = 0;
 		creditsButton.canClick = false;
 		creditsButton.alpha = 0;
 		add(playButton);
-		add(continueButton);
 		add(optionsButton);
 		add(creditsButton);
 		#if desktop
@@ -122,9 +112,9 @@ class TitleState extends FlxState {
 			&& completeFadeStart == false) {
 			playButton.fadeIn(fadeTime);
 			if (playButton.alpha >= .9) {
-				continueButton.fadeIn(fadeTime);
+				optionsButton.fadeIn(fadeTime);
 			}
-			if (continueButton.alpha >= .9) {
+			if (optionsButton.alpha >= .9) {
 				optionsButton.fadeIn(fadeTime);
 			}
 			if (optionsButton.alpha >= .9) {
@@ -145,7 +135,7 @@ class TitleState extends FlxState {
 
 		if (completeFadeStart) {
 			playButton.canClick = true;
-			continueButton.canClick = true;
+
 			optionsButton.canClick = true;
 			creditsButton.canClick = true;
 			#if desktop
@@ -159,10 +149,6 @@ class TitleState extends FlxState {
 		// 	el.name == 'Intro');
 		// FlxG.switchState(new CutsceneState(new HubState(),
 		// 	introText.cutsceneText));
-	}
-
-	public function clickContinue() {
-		// openSubState(new LoadSubState());
 	}
 
 	public function clickOptions() {
