@@ -5,6 +5,10 @@ class Globals {
 
 	// Tile Size for grid based movement
 	public static inline var TILE_SIZE:Int = 8;
+	// Default movement speed
+	public static inline var MOVEMENT_SPEED:Int = 1;
+
+	// Text area
 	public static inline var TEXT_START = 'Start';
 	public static inline var TEXT_CONTINUE = 'Continue';
 	public static inline var TEXT_EXIT = 'Exit';

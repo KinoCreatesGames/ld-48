@@ -20,7 +20,9 @@ class BaseTileState extends FlxState {
 	public var decorationGrp:FlxTypedGroup<FlxTilemap>;
 	public var enemyGrp:FlxTypedGroup<Enemy>;
 
-	public static inline var TILESET_NAME:String = 'Tileset';
+	// Tile set names for particular groups
+	public static inline var TILESET_NAME:String = 'MRMOTEXT';
+	public static inline var AUTO_TILESET_NAME:String = 'FloorAuto';
 
 	override public function create() {
 		super.create();
@@ -29,7 +31,7 @@ class BaseTileState extends FlxState {
 	}
 
 	public function createLevel(?levelName:String) {
-		final map = new TiledMap(levelName);
+		final map = new TiledMap(getLevel(levelName));
 		this.map = map;
 
 		createGroups();
@@ -81,15 +83,15 @@ class BaseTileState extends FlxState {
 		add(enemyGrp);
 	}
 
-	public function createLevelMap(tileLayer:TiledTileLayer) {
+	public function createLevelMap(tileLayer:TiledTileLayer,
+			?autoTileLayer:TiledTileLayer) {
 		// Gets Tiled Image Data
 		var tileset:TiledTileSet = map.getTileSet(TILESET_NAME);
 
-		if (tileLayer == null) {
-			// get with prefix
-			tileLayer = null;
-		} else {
+		if (tileLayer != null) {
 			addLevelToGrp(tileLayer, tilesetPath(), tileset);
+		} else if (autoTileLayer != null) {
+			addLevelToGrp(autoTileLayer, tilesetPath(), tileset);
 		}
 		createDecorationLayers();
 	}
@@ -138,5 +140,9 @@ class BaseTileState extends FlxState {
 	 */
 	public function tilesetPath():String {
 		return '';
+	}
+
+	public inline function getLevel(levelName:String) {
+		return 'assets/maps/ld-48/tiled/${levelName}.tmx';
 	}
 }
