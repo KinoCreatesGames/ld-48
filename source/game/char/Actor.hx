@@ -21,9 +21,12 @@ class Actor extends FlxSprite {
 	public function new(x:Float, y:Float, actorData:ActorData) {
 		super(x, y);
 		data = actorData;
+		create();
 		assignStats();
 		setupGraphics();
 	}
+
+	public function create() {}
 
 	public function setupGraphics() {}
 
