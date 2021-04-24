@@ -37,9 +37,9 @@ class Player extends Actor {
 		animation.add('idle_left', [4], fRate);
 		animation.add('idle_right', [6], fRate);
 		animation.add('run_down', [1, 0, 2], fRate);
-		animation.add('run_left', [4, 5], fRate);
-		animation.add('run_right', [6, 7], fRate);
-		animation.add('run_up', [8, 9, 10], fRate);
+		animation.add('run_left', [5, 4, 5], fRate);
+		animation.add('run_right', [7, 6, 7], fRate);
+		animation.add('run_up', [9, 8, 10], fRate);
 		createVirtualPad();
 		createSword();
 	}
