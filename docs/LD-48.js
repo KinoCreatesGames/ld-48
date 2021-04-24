@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "11";
+	app.meta.h["build"] = "12";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "LD-48";
 	app.meta.h["name"] = "LD-48";
@@ -47540,19 +47540,20 @@ game_char_Actor.prototype = $extend(flixel_FlxSprite.prototype,{
 		if(this.moveToNextTile) {
 			switch(this.moveDirection._hx_index) {
 			case 0:
-				this.set_y(this.y - 4);
+				this.set_y(this.y - 1);
 				break;
 			case 1:
-				this.set_y(this.y + 4);
+				this.set_y(this.y + 1);
 				break;
 			case 2:
-				this.set_x(this.x - 4);
+				this.set_x(this.x - 1);
 				break;
 			case 3:
-				this.set_x(this.x + 4);
+				this.set_x(this.x + 1);
 				break;
 			}
 		}
+		haxe_Log.trace(this.x,{ fileName : "source/game/char/Actor.hx", lineNumber : 65, className : "game.char.Actor", methodName : "updateMovement"});
 		if(this.x % 32 == 0 && this.y % 32 == 0) {
 			this.moveToNextTile = false;
 		}
@@ -47620,9 +47621,9 @@ game_char_Player.prototype = $extend(game_char_Actor.prototype,{
 		this.animation.add("idle_left",[4],fRate);
 		this.animation.add("idle_right",[6],fRate);
 		this.animation.add("run_down",[1,0,2],fRate);
-		this.animation.add("run_left",[4,5],fRate);
-		this.animation.add("run_right",[6,7],fRate);
-		this.animation.add("run_up",[8,9,10],fRate);
+		this.animation.add("run_left",[5,4,5],fRate);
+		this.animation.add("run_right",[7,6,7],fRate);
+		this.animation.add("run_up",[9,8,10],fRate);
 		this.createVirtualPad();
 		this.createSword();
 	}
@@ -48037,7 +48038,7 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 			var tileId = tile - tileset.firstGID;
 			switch(tileId) {
 			case 0:
-				this.player.setPosition(coords.x,coords.y);
+				this.player.setPosition(coords.x - 8,coords.y - 8);
 				break;
 			case 1:
 				break;
@@ -67283,7 +67284,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 244611;
+	this.version = 451747;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -113277,7 +113278,7 @@ AssetPaths.enemy_impact__wav = "assets/sounds/enemy-impact.wav";
 Globals.GAME_TITLE = "Love Defense ";
 Globals.GAME_SAVE_SLOTS = 5;
 Globals.TILE_SIZE = 32;
-Globals.MOVEMENT_SPEED = 4;
+Globals.MOVEMENT_SPEED = 1;
 Globals.TEXT_START = "Start";
 Globals.TEXT_CONTINUE = "Continue";
 Globals.TEXT_EXIT = "Exit";
