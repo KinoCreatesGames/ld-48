@@ -30,7 +30,16 @@ class Player extends Actor {
 	}
 
 	override public function setupGraphics() {
-		makeGraphic(8, 8, KColor.WHITE);
+		loadGraphic(AssetPaths.Player__png, true, 32, 32, true);
+		var fRate = 6;
+		animation.add('idle', [0], fRate);
+		animation.add('idle_up', [8], fRate);
+		animation.add('idle_left', [4], fRate);
+		animation.add('idle_right', [6], fRate);
+		animation.add('run_down', [1, 0, 2], fRate);
+		animation.add('run_left', [4, 5], fRate);
+		animation.add('run_right', [6, 7], fRate);
+		animation.add('run_up', [8, 9, 10], fRate);
 		createVirtualPad();
 		createSword();
 	}
@@ -127,8 +136,34 @@ class Player extends Actor {
 			}
 			#end
 		}
-
+		updateAnim(elapsed);
 		this.bound();
+	}
+
+	public function updateAnim(elapsed:Float) {
+		if (moveToNextTile) {
+			switch (facing) {
+				case FlxObject.LEFT:
+					animation.play('run_left');
+				case FlxObject.RIGHT:
+					animation.play('run_right');
+				case FlxObject.UP:
+					animation.play('run_up');
+				case FlxObject.DOWN:
+					animation.play('run_down');
+			}
+		} else {
+			switch (facing) {
+				case FlxObject.LEFT:
+					animation.play('idle_left');
+				case FlxObject.RIGHT:
+					animation.play('idle_right');
+				case FlxObject.UP:
+					animation.play('idle_up');
+				case FlxObject.DOWN:
+					animation.play('idle');
+			}
+		}
 	}
 
 	public function startAction(action:Action) {

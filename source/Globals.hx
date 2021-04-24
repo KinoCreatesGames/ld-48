@@ -4,9 +4,9 @@ class Globals {
 	public static inline var GAME_SAVE_SLOTS:Int = 5;
 
 	// Tile Size for grid based movement
-	public static inline var TILE_SIZE:Int = 8;
+	public static inline var TILE_SIZE:Int = 32;
 	// Default movement speed
-	public static inline var MOVEMENT_SPEED:Int = 1;
+	public static inline var MOVEMENT_SPEED:Int = 4;
 
 	// Text area
 	public static inline var TEXT_START = 'Start';
