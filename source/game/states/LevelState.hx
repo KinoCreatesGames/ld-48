@@ -106,7 +106,7 @@ class LevelState extends BaseTileState {
 			switch (tileId) {
 				case SPAWN:
 					// Set the player position on spawning
-					player.setPosition(coords.x, coords.y);
+					player.setPosition(coords.x - 8, coords.y - 8);
 				case CRACK:
 				// Create Crack Here as individual sprite sheet
 				// var sprite = new Goal(coords.x, coords.y);
