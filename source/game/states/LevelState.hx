@@ -1,5 +1,9 @@
 package game.states;
 
+import game.objects.Shield;
+import game.objects.Sword;
+import game.objects.Hook;
+import game.objects.WizardBag;
 import flixel.tile.FlxBaseTilemap.FlxTilemapAutoTiling;
 import flixel.tile.FlxTilemap;
 import flixel.addons.editors.tiled.TiledObjectLayer;
@@ -90,7 +94,19 @@ class LevelState extends BaseTileState {
 	}
 
 	public function playerTouchCollectible(player:Player,
-		collectible:Collectible) {}
+			collectible:Collectible) {
+		var collectibleClass = Type.getClass(collectible);
+		switch (collectibleClass) {
+			case Sword:
+				player.hasSword = true;
+			case Shield:
+				player.hasShield = true;
+			case WizardBag:
+				player.hasWizardBag = true;
+			case Hook:
+				player.hasHook = true;
+		}
+	}
 
 	override public function processLevel(elapsed:Float) {
 		super.processLevel(elapsed);
