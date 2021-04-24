@@ -16,6 +16,8 @@ class Player extends Actor {
 	public var hasWizardBag:Bool = false;
 	public var hasHook:Bool = false;
 	public var actionNotify:FlxTypedSignal<Action -> Void>;
+	public var canTakeAction:Bool = true;
+	public var shielded:Bool = false;
 
 	public var swordHitBox:FlxSprite;
 
@@ -54,6 +56,16 @@ class Player extends Actor {
 		if (hasSword) {
 			processSwordPowerUp(elapsed);
 		}
+		if (hasShield) {
+			processShieldPowerUp(elapsed);
+		}
+	}
+
+	public function processShieldPowerUp(elapsed:Float) {
+		var shield = FlxG.keys.anyJustPressed([X]);
+		if (shield && canTakeAction) {
+			shielded = true;
+		}
 	}
 
 	public function processSwordPowerUp(elapsed:Float) {
@@ -62,7 +74,7 @@ class Player extends Actor {
 		var newPosition = playerMidPoint.copyTo(FlxPoint.weak(0, 0));
 		var offSet = this.width / 2;
 		var tileSize = Globals.TILE_SIZE;
-		if (attack) {
+		if (attack && canTakeAction) {
 			// Attack in front of the player
 			switch (facing) {
 				case FlxObject.LEFT:
@@ -81,43 +93,56 @@ class Player extends Actor {
 			trace('moved sword hit box');
 			swordHitBox.setPosition(newPosition.x, newPosition.y);
 			// Action Signal
-			actionNotify.dispatch(Attack);
+			startAction(Attack);
 		}
 	}
 
 	override public function updateMovement(elapsed) {
 		super.updateMovement(elapsed);
-		#if mobile
-		if (_virtualPad.buttonDown.pressed) {
-			moveTo(MoveDirection.DOWN);
-		} else if (_virtualPad.buttonUp.pressed) {
-			moveTo(MoveDirection.UP);
-		} else if (_virtualPad.buttonLeft.pressed) {
-			moveTo(MoveDirection.LEFT);
-		} else if (_virtualPad.buttonRight.pressed) {
-			moveTo(MoveDirection.RIGHT);
+		if (canTakeAction) {
+			#if mobile
+			if (_virtualPad.buttonDown.pressed) {
+				moveTo(MoveDirection.DOWN);
+			} else if (_virtualPad.buttonUp.pressed) {
+				moveTo(MoveDirection.UP);
+			} else if (_virtualPad.buttonLeft.pressed) {
+				moveTo(MoveDirection.LEFT);
+			} else if (_virtualPad.buttonRight.pressed) {
+				moveTo(MoveDirection.RIGHT);
+			}
+			#else
+			// Check for WASD or arrow key presses and move accordingly
+			if (FlxG.keys.anyJustPressed([DOWN, S])) {
+				moveTo(MoveDirection.DOWN);
+				facing = FlxObject.DOWN;
+			} else if (FlxG.keys.anyJustPressed([UP, W])) {
+				moveTo(MoveDirection.UP);
+				facing = FlxObject.UP;
+			} else if (FlxG.keys.anyJustPressed([LEFT, A])) {
+				moveTo(MoveDirection.LEFT);
+				facing = FlxObject.LEFT;
+			} else if (FlxG.keys.anyJustPressed([RIGHT, D])) {
+				moveTo(MoveDirection.RIGHT);
+				facing = FlxObject.RIGHT;
+			}
+			#end
 		}
-		#else
-		// Check for WASD or arrow key presses and move accordingly
-		if (FlxG.keys.anyJustPressed([DOWN, S])) {
-			moveTo(MoveDirection.DOWN);
-			facing = FlxObject.DOWN;
-		} else if (FlxG.keys.anyJustPressed([UP, W])) {
-			moveTo(MoveDirection.UP);
-			facing = FlxObject.UP;
-		} else if (FlxG.keys.anyJustPressed([LEFT, A])) {
-			moveTo(MoveDirection.LEFT);
-			facing = FlxObject.LEFT;
-		} else if (FlxG.keys.anyJustPressed([RIGHT, D])) {
-			moveTo(MoveDirection.RIGHT);
-			facing = FlxObject.RIGHT;
-		}
-		#end
+
 		this.bound();
+	}
+
+	public function startAction(action:Action) {
+		canTakeAction = false;
+		actionNotify.dispatch(action);
+	}
+
+	public function resetState() {
+		shielded = false;
+		canTakeAction = true;
 	}
 
 	override public function moveTo(direction:MoveDirection) {
 		super.moveTo(direction);
-		actionNotify.dispatch(Move);
+		startAction(Move);
 	}
 }

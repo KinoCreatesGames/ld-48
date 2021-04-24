@@ -72,6 +72,10 @@ class LevelState extends BaseTileState {
 	public function updateTurn() {
 		// Update Turn For All Game Elements
 		trace('Turn Update');
+
+		// Turn Updates For Everybody
+		// Player can finally move again
+		player.resetState();
 	}
 
 	public function createRegionEntities(regions:TiledTileLayer,
