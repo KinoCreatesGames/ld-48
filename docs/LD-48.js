@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "12";
+	app.meta.h["build"] = "13";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "LD-48";
 	app.meta.h["name"] = "LD-48";
@@ -3459,7 +3459,7 @@ ManifestResources.init = function(config) {
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf);
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf);
 	var bundle;
-	var data = "{\"name\":null,\"assets\":\"aoy4:pathy36:assets%2Fimages%2Fimages-go-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y34:assets%2Fimages%2Fdialog-arrow.pngR2i261R3y5:IMAGER5R7R6tgoR0y28:assets%2Fimages%2Fbutton.pngR2i1126R3R8R5R9R6tgoR0y28:assets%2Fimages%2FPlayer.pngR2i2135R3R8R5R10R6tgoR0y31:assets%2Fimages%2Fexit-door.pngR2i382R3R8R5R11R6tgoR0y37:assets%2Fimages%2Faffection-heart.pngR2i685R3R8R5R12R6tgoR0y30:assets%2Fimages%2FMRMOTEXT.pngR2i6622R3R8R5R13R6tgoR0y29:assets%2Fimages%2Fcog-two.pngR2i512R3R8R5R14R6tgoR0y26:assets%2Fmaps%2Fld-48.ldtkR2i36678R3R4R5R15R6tgoR0y42:assets%2Fmaps%2FTilemap-data-goes-here.txtR2zR3R4R5R16R6tgoR0y51:assets%2Fmaps%2Fld-48%2Ftiled%2FRegions.intgrid.pngR2i97R3R8R5R17R6tgoR0y53:assets%2Fmaps%2Fld-48%2Ftiled%2FFloorAuto.intgrid.pngR2i112R3R8R5R18R6tgoR0y43:assets%2Fmaps%2Fld-48%2Ftiled%2FLevel_0.tmxR2i3175R3R4R5R19R6tgoR0y43:assets%2Fmaps%2Fld-48%2Ftiled%2Fld-48.worldR2i78R3R4R5R20R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R21R6tgoR0y28:assets%2Fdata%2Fdatabase.dpoR2i15R3R4R5R22R6tgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R4R5R23R6tgoR2i39740R3y5:SOUNDR5y32:assets%2Fsounds%2Flow-health.wavy9:pathGroupaR25hR6tgoR2i39788R3R24R5y35:assets%2Fsounds%2Fpause-out-new.wavR26aR27hR6tgoR2i8410R3R24R5y28:assets%2Fsounds%2Fimpact.wavR26aR28hR6tgoR2i22964R3R24R5y30:assets%2Fsounds%2Fpause-in.wavR26aR29hR6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R4R5R30R6tgoR2i40628R3R24R5y34:assets%2Fsounds%2Fpause-in-new.wavR26aR31hR6tgoR2i3672R3R24R5y32:assets%2Fsounds%2Fmouse-over.wavR26aR32hR6tgoR2i6900R3R24R5y31:assets%2Fsounds%2Fmenu-open.wavR26aR33hR6tgoR2i4584R3R24R5y33:assets%2Fsounds%2Fbullet-fire.wavR26aR34hR6tgoR2i19472R3R24R5y31:assets%2Fsounds%2Fpause-out.wavR26aR35hR6tgoR2i8378R3R24R5y34:assets%2Fsounds%2Fbutton-click.wavR26aR36hR6tgoR2i4578R3R24R5y31:assets%2Fsounds%2Fmenu-exit.wavR26aR37hR6tgoR2i12492R3R24R5y34:assets%2Fsounds%2Fenemy-impact.wavR26aR38hR6tgoR2i2114R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3R26aR40y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R39R5y28:flixel%2Fsounds%2Fflixel.mp3R26aR42y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i5794R3R24R5R41R26aR40R41hgoR2i33629R3R24R5R43R26aR42R43hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R44R45y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3R8R5R50R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R8R5R51R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	var data = "{\"name\":null,\"assets\":\"aoy4:pathy32:assets%2Fimages%2FBackground.pngy4:sizei15533y4:typey5:IMAGEy2:idR1y7:preloadtgoR0y33:assets%2Fimages%2Ffinal-tiles.pngR2i18234R3R4R5R7R6tgoR0y33:assets%2Fimages%2Ffinal-tiles.psdR2i216030R3y6:BINARYR5R8R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3y4:TEXTR5R10R6tgoR0y34:assets%2Fimages%2Fdialog-arrow.pngR2i261R3R4R5R12R6tgoR0y28:assets%2Fimages%2Fbutton.pngR2i1126R3R4R5R13R6tgoR0y27:assets%2Fimages%2FGrass.pngR2i2918R3R4R5R14R6tgoR0y28:assets%2Fimages%2FPlayer.pngR2i2135R3R4R5R15R6tgoR0y31:assets%2Fimages%2Fexit-door.pngR2i382R3R4R5R16R6tgoR0y37:assets%2Fimages%2Faffection-heart.pngR2i685R3R4R5R17R6tgoR0y32:assets%2Fimages%2FTilesClean.pngR2i15113R3R4R5R18R6tgoR0y30:assets%2Fimages%2FMRMOTEXT.pngR2i6622R3R4R5R19R6tgoR0y29:assets%2Fimages%2FTileset.pngR2i10044R3R4R5R20R6tgoR0y32:assets%2Fimages%2FGrassClean.pngR2i3147R3R4R5R21R6tgoR0y29:assets%2Fimages%2Fcog-two.pngR2i512R3R4R5R22R6tgoR0y26:assets%2Fmaps%2Fld-48.ldtkR2i55750R3R11R5R23R6tgoR0y42:assets%2Fmaps%2FTilemap-data-goes-here.txtR2zR3R11R5R24R6tgoR0y81:assets%2Fmaps%2Fld-48%2Fbackups%2Fld-48___2021-04-24__17-07-08__crash.backup.ldtkR2i9080R3R11R5R25R6tgoR0y51:assets%2Fmaps%2Fld-48%2Ftiled%2FRegions.intgrid.pngR2i189R3R4R5R26R6tgoR0y53:assets%2Fmaps%2Fld-48%2Ftiled%2FFloorAuto.intgrid.pngR2i261R3R4R5R27R6tgoR0y43:assets%2Fmaps%2Fld-48%2Ftiled%2FLevel_0.tmxR2i5923R3R11R5R28R6tgoR0y43:assets%2Fmaps%2Fld-48%2Ftiled%2Fld-48.worldR2i78R3R11R5R29R6tgoR0y49:assets%2Fmaps%2Fld-48%2Ftiled%2FGrass.intgrid.pngR2i132R3R4R5R30R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R11R5R31R6tgoR0y28:assets%2Fdata%2Fdatabase.dpoR2i15R3R11R5R32R6tgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R11R5R33R6tgoR2i39740R3y5:SOUNDR5y32:assets%2Fsounds%2Flow-health.wavy9:pathGroupaR35hR6tgoR2i39788R3R34R5y35:assets%2Fsounds%2Fpause-out-new.wavR36aR37hR6tgoR2i8410R3R34R5y28:assets%2Fsounds%2Fimpact.wavR36aR38hR6tgoR2i22964R3R34R5y30:assets%2Fsounds%2Fpause-in.wavR36aR39hR6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R11R5R40R6tgoR2i40628R3R34R5y34:assets%2Fsounds%2Fpause-in-new.wavR36aR41hR6tgoR2i3672R3R34R5y32:assets%2Fsounds%2Fmouse-over.wavR36aR42hR6tgoR2i6900R3R34R5y31:assets%2Fsounds%2Fmenu-open.wavR36aR43hR6tgoR2i4584R3R34R5y33:assets%2Fsounds%2Fbullet-fire.wavR36aR44hR6tgoR2i19472R3R34R5y31:assets%2Fsounds%2Fpause-out.wavR36aR45hR6tgoR2i8378R3R34R5y34:assets%2Fsounds%2Fbutton-click.wavR36aR46hR6tgoR2i4578R3R34R5y31:assets%2Fsounds%2Fmenu-exit.wavR36aR47hR6tgoR2i12492R3R34R5y34:assets%2Fsounds%2Fenemy-impact.wavR36aR48hR6tgoR2i2114R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3R36aR50y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R49R5y28:flixel%2Fsounds%2Fflixel.mp3R36aR52y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i5794R3R34R5R51R36aR50R51hgoR2i33629R3R34R5R53R36aR52R53hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R54R55y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3R4R5R60R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R4R5R61R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	var manifest = lime_utils_AssetManifest.parse(data,ManifestResources.rootPath);
 	var library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -47553,7 +47553,6 @@ game_char_Actor.prototype = $extend(flixel_FlxSprite.prototype,{
 				break;
 			}
 		}
-		haxe_Log.trace(this.x,{ fileName : "source/game/char/Actor.hx", lineNumber : 65, className : "game.char.Actor", methodName : "updateMovement"});
 		if(this.x % 32 == 0 && this.y % 32 == 0) {
 			this.moveToNextTile = false;
 		}
@@ -47935,7 +47934,7 @@ game_states_BaseTileState.prototype = $extend(flixel_FlxState.prototype,{
 		this.add(this.enemyGrp);
 	}
 	,createLevelMap: function(tileLayer,autoTileLayer) {
-		var tileset = this.map.getTileSet("MRMOTEXT");
+		var tileset = this.map.getTileSet("TilesClean");
 		if(tileLayer != null) {
 			this.addLevelToGrp(tileLayer,this.tilesetPath(),tileset);
 		} else if(autoTileLayer != null) {
@@ -47944,7 +47943,7 @@ game_states_BaseTileState.prototype = $extend(flixel_FlxState.prototype,{
 		this.createDecorationLayers();
 	}
 	,createDecorationLayers: function() {
-		var tileset = this.map.getTileSet("MRMOTEXT");
+		var tileset = this.map.getTileSet("TilesClean");
 		var tileLayer = this.map.getLayer("Decoration");
 		if(tileLayer != null) {
 			var levelDecoration = new flixel_tile_FlxTilemap();
@@ -48038,7 +48037,7 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 			var tileId = tile - tileset.firstGID;
 			switch(tileId) {
 			case 0:
-				this.player.setPosition(coords.x - 8,coords.y - 8);
+				this.player.setPosition(coords.x,coords.y);
 				break;
 			case 1:
 				break;
@@ -48092,7 +48091,7 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 		return 300;
 	}
 	,tilesetPath: function() {
-		return "assets/images/MRMOTEXT.png";
+		return "assets/images/TilesClean.png";
 	}
 	,__class__: game_states_LevelState
 });
@@ -67284,7 +67283,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 451747;
+	this.version = 647044;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -113245,20 +113244,29 @@ openfl_display_DisplayObject.__tempStack = new lime_utils_ObjectPool(function() 
 },function(stack) {
 	stack.set_length(0);
 });
+AssetPaths.Background__png = "assets/images/Background.png";
+AssetPaths.final_tiles__png = "assets/images/final-tiles.png";
+AssetPaths.final_tiles__psd = "assets/images/final-tiles.psd";
 AssetPaths.images_go_here__txt = "assets/images/images-go-here.txt";
 AssetPaths.dialog_arrow__png = "assets/images/dialog-arrow.png";
 AssetPaths.button__png = "assets/images/button.png";
+AssetPaths.Grass__png = "assets/images/Grass.png";
 AssetPaths.Player__png = "assets/images/Player.png";
 AssetPaths.exit_door__png = "assets/images/exit-door.png";
 AssetPaths.affection_heart__png = "assets/images/affection-heart.png";
+AssetPaths.TilesClean__png = "assets/images/TilesClean.png";
 AssetPaths.MRMOTEXT__png = "assets/images/MRMOTEXT.png";
+AssetPaths.Tileset__png = "assets/images/Tileset.png";
+AssetPaths.GrassClean__png = "assets/images/GrassClean.png";
 AssetPaths.cog_two__png = "assets/images/cog-two.png";
 AssetPaths.ld_48__ldtk = "assets/maps/ld-48.ldtk";
 AssetPaths.Tilemap_data_goes_here__txt = "assets/maps/Tilemap-data-goes-here.txt";
+AssetPaths.ld_48___2021_04_24__17_07_08__crash__backup__ldtk = "assets/maps/ld-48/backups/ld-48___2021-04-24__17-07-08__crash.backup.ldtk";
 AssetPaths.Regions__intgrid__png = "assets/maps/ld-48/tiled/Regions.intgrid.png";
 AssetPaths.FloorAuto__intgrid__png = "assets/maps/ld-48/tiled/FloorAuto.intgrid.png";
 AssetPaths.Level_0__tmx = "assets/maps/ld-48/tiled/Level_0.tmx";
 AssetPaths.ld_48__world = "assets/maps/ld-48/tiled/ld-48.world";
+AssetPaths.Grass__intgrid__png = "assets/maps/ld-48/tiled/Grass.intgrid.png";
 AssetPaths.music_goes_here__txt = "assets/music/music-goes-here.txt";
 AssetPaths.database__dpo = "assets/data/database.dpo";
 AssetPaths.data_goes_here__txt = "assets/data/data-goes-here.txt";
@@ -114511,8 +114519,9 @@ game_ext_KColor.DARK_BYZANTIUM = -11392185;
 game_ext_KColor.MORNING_BLUE = -7492963;
 game_ext_KColor.PRETTY_PINK = -37993;
 game_ext_KColor.LIGHT_ORANGE = -28314;
-game_states_BaseTileState.TILESET_NAME = "MRMOTEXT";
+game_states_BaseTileState.TILESET_NAME = "TilesClean";
 game_states_BaseTileState.AUTO_TILESET_NAME = "FloorAuto";
+game_states_BaseTileState.GRASS_AUTO_TILESET = "Grass";
 haxe_Int32._mul = Math.imul != null ? Math.imul : function(a,b) {
 	return a * (b & 65535) + (a * (b >>> 16) << 16 | 0) | 0;
 };
