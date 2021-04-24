@@ -1,5 +1,6 @@
 package game.states;
 
+import game.ui.PlayerHUD;
 import game.objects.Shield;
 import game.objects.Sword;
 import game.objects.Hook;
@@ -22,13 +23,19 @@ enum abstract RegionId(Int) from Int to Int {
 class LevelState extends BaseTileState {
 	// Single Objects
 	public var player:Player;
+	public var playerHUD:PlayerHUD;
 
 	// Groups
 	public var collectibleGrp:FlxTypedGroup<Collectible>;
+	public var enemyBulletGrp:FlxTypedGroup<Bullet>;
+
+	// Sounds
+	public var pauseInSound:FlxSound;
 
 	override public function createGroups() {
 		super.createGroups();
 		createSounds();
+		createEnemyGroups();
 		createPlayer();
 	}
 
@@ -36,11 +43,18 @@ class LevelState extends BaseTileState {
 		super.addGroups();
 		// add(regionGrp);
 		add(player);
+		add(enemyBulletGrp);
 		// add(packageGrp);
 		// add(playerHUD);
 	}
 
-	public function createSounds() {}
+	public function createSounds() {
+		pauseInSound = FlxG.sound.load(AssetPaths.pause_in_new__wav);
+	}
+
+	public function createEnemyGroups() {
+		enemyBulletGrp = new FlxTypedGroup<Bullet>(50);
+	}
 
 	public function createPlayer() {
 		player = new Player(0, 0, null);
@@ -48,6 +62,7 @@ class LevelState extends BaseTileState {
 
 	override public function createUI() {
 		super.createUI();
+		playerHUD = new PlayerHUD(0, 0, player);
 	}
 
 	override public function createLevelInformation() {
@@ -141,6 +156,13 @@ class LevelState extends BaseTileState {
 
 	override public function processLevel(elapsed:Float) {
 		super.processLevel(elapsed);
+		processPause(elapsed);
+	}
+
+	public function processPause(elapsed:Float) {
+		if (FlxG.keys.anyJustPressed([ESCAPE])) {
+			openSubState(new PauseSubState());
+		}
 	}
 
 	public function levelTime() {
