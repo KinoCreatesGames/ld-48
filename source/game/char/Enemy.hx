@@ -18,5 +18,5 @@ class Enemy extends game.char.Actor {
 		updateMovement(elapsed);
 	}
 
-	public function updateMovement(elapsed:Float) {}
+	override public function updateMovement(elapsed:Float) {}
 }
