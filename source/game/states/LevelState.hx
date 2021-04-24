@@ -57,9 +57,21 @@ class LevelState extends BaseTileState {
 		var entityLayer:TiledObjectLayer = cast map.getLayer('Entities');
 		var autoTileLayer:TiledTileLayer = cast map.getLayer('FloorAuto');
 
+		createTurnAction();
 		createLevelMap(tileLayer, autoTileLayer);
 		createRegionEntities(regionLayer, regionTileset);
 		createTiledEntities(entityLayer);
+	}
+
+	public function createTurnAction() {
+		player.actionNotify.add((action) -> {
+			updateTurn();
+		});
+	}
+
+	public function updateTurn() {
+		// Update Turn For All Game Elements
+		trace('Turn Update');
 	}
 
 	public function createRegionEntities(regions:TiledTileLayer,
@@ -91,6 +103,7 @@ class LevelState extends BaseTileState {
 	override public function processCollision() {
 		super.processCollision();
 		FlxG.overlap(player, collectibleGrp, playerTouchCollectible);
+		FlxG.overlap(player.swordHitBox, null, playerSwordTouchGrass);
 	}
 
 	public function playerTouchCollectible(player:Player,
@@ -105,6 +118,20 @@ class LevelState extends BaseTileState {
 				player.hasWizardBag = true;
 			case Hook:
 				player.hasHook = true;
+		}
+	}
+
+	// TODO: Change to cuttable object
+	public function playerSwordTouchGrass(sword:FlxSprite,
+			cuttable:FlxSprite) {
+		if (sword.visible) {
+			// Do Damage or cut grass
+			// Hit Box Disappears
+			if (cuttable != null) {
+				cuttable.kill();
+			}
+			// Hit box disappears
+			sword.visible = false;
 		}
 	}
 

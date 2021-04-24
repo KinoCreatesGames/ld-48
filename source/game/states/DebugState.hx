@@ -5,4 +5,11 @@ class DebugState extends LevelState {
 		super.create();
 		createLevel('Level_0');
 	}
+
+	override public function update(elapsed:Float) {
+		super.update(elapsed);
+		if (player != null && player.hasSword == false) {
+			player.hasSword = true;
+		}
+	}
 }
