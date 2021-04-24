@@ -62,7 +62,6 @@ class Actor extends FlxSprite {
 			}
 		}
 
-		trace(x);
 		if ((x % Globals.TILE_SIZE == 0) && (y % Globals.TILE_SIZE == 0)) {
 			moveToNextTile = false;
 		}
