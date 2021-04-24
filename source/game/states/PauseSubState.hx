@@ -14,7 +14,7 @@ class PauseSubState extends FlxSubState {
 	}
 
 	override public function create() {
-		pauseExitSound = FlxG.sound.load(AssetPaths.pause_out__wav);
+		pauseExitSound = FlxG.sound.load(AssetPaths.pause_out_new__wav);
 		FlxG.mouse.visible = true;
 		pauseText = new FlxText(0, 0, -1, 'Pause', Globals.FONT_L);
 		pauseText.screenCenter();
