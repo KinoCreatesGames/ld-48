@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "10";
+	app.meta.h["build"] = "11";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "LD-48";
 	app.meta.h["name"] = "LD-48";
@@ -3459,7 +3459,7 @@ ManifestResources.init = function(config) {
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf);
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf);
 	var bundle;
-	var data = "{\"name\":null,\"assets\":\"aoy4:pathy36:assets%2Fimages%2Fimages-go-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y34:assets%2Fimages%2Fdialog-arrow.pngR2i261R3y5:IMAGER5R7R6tgoR0y28:assets%2Fimages%2Fbutton.pngR2i1126R3R8R5R9R6tgoR0y31:assets%2Fimages%2Fexit-door.pngR2i382R3R8R5R10R6tgoR0y37:assets%2Fimages%2Faffection-heart.pngR2i685R3R8R5R11R6tgoR0y30:assets%2Fimages%2FMRMOTEXT.pngR2i6622R3R8R5R12R6tgoR0y29:assets%2Fimages%2Fcog-two.pngR2i512R3R8R5R13R6tgoR0y26:assets%2Fmaps%2Fld-48.ldtkR2i36678R3R4R5R14R6tgoR0y42:assets%2Fmaps%2FTilemap-data-goes-here.txtR2zR3R4R5R15R6tgoR0y51:assets%2Fmaps%2Fld-48%2Ftiled%2FRegions.intgrid.pngR2i97R3R8R5R16R6tgoR0y53:assets%2Fmaps%2Fld-48%2Ftiled%2FFloorAuto.intgrid.pngR2i112R3R8R5R17R6tgoR0y43:assets%2Fmaps%2Fld-48%2Ftiled%2FLevel_0.tmxR2i3175R3R4R5R18R6tgoR0y43:assets%2Fmaps%2Fld-48%2Ftiled%2Fld-48.worldR2i78R3R4R5R19R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R20R6tgoR0y28:assets%2Fdata%2Fdatabase.dpoR2i15R3R4R5R21R6tgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R4R5R22R6tgoR2i39740R3y5:SOUNDR5y32:assets%2Fsounds%2Flow-health.wavy9:pathGroupaR24hR6tgoR2i39788R3R23R5y35:assets%2Fsounds%2Fpause-out-new.wavR25aR26hR6tgoR2i8410R3R23R5y28:assets%2Fsounds%2Fimpact.wavR25aR27hR6tgoR2i22964R3R23R5y30:assets%2Fsounds%2Fpause-in.wavR25aR28hR6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R4R5R29R6tgoR2i40628R3R23R5y34:assets%2Fsounds%2Fpause-in-new.wavR25aR30hR6tgoR2i3672R3R23R5y32:assets%2Fsounds%2Fmouse-over.wavR25aR31hR6tgoR2i6900R3R23R5y31:assets%2Fsounds%2Fmenu-open.wavR25aR32hR6tgoR2i4584R3R23R5y33:assets%2Fsounds%2Fbullet-fire.wavR25aR33hR6tgoR2i19472R3R23R5y31:assets%2Fsounds%2Fpause-out.wavR25aR34hR6tgoR2i8378R3R23R5y34:assets%2Fsounds%2Fbutton-click.wavR25aR35hR6tgoR2i4578R3R23R5y31:assets%2Fsounds%2Fmenu-exit.wavR25aR36hR6tgoR2i12492R3R23R5y34:assets%2Fsounds%2Fenemy-impact.wavR25aR37hR6tgoR2i2114R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3R25aR39y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R38R5y28:flixel%2Fsounds%2Fflixel.mp3R25aR41y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i5794R3R23R5R40R25aR39R40hgoR2i33629R3R23R5R42R25aR41R42hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R43R44y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3R8R5R49R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R8R5R50R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	var data = "{\"name\":null,\"assets\":\"aoy4:pathy36:assets%2Fimages%2Fimages-go-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y34:assets%2Fimages%2Fdialog-arrow.pngR2i261R3y5:IMAGER5R7R6tgoR0y28:assets%2Fimages%2Fbutton.pngR2i1126R3R8R5R9R6tgoR0y28:assets%2Fimages%2FPlayer.pngR2i2135R3R8R5R10R6tgoR0y31:assets%2Fimages%2Fexit-door.pngR2i382R3R8R5R11R6tgoR0y37:assets%2Fimages%2Faffection-heart.pngR2i685R3R8R5R12R6tgoR0y30:assets%2Fimages%2FMRMOTEXT.pngR2i6622R3R8R5R13R6tgoR0y29:assets%2Fimages%2Fcog-two.pngR2i512R3R8R5R14R6tgoR0y26:assets%2Fmaps%2Fld-48.ldtkR2i36678R3R4R5R15R6tgoR0y42:assets%2Fmaps%2FTilemap-data-goes-here.txtR2zR3R4R5R16R6tgoR0y51:assets%2Fmaps%2Fld-48%2Ftiled%2FRegions.intgrid.pngR2i97R3R8R5R17R6tgoR0y53:assets%2Fmaps%2Fld-48%2Ftiled%2FFloorAuto.intgrid.pngR2i112R3R8R5R18R6tgoR0y43:assets%2Fmaps%2Fld-48%2Ftiled%2FLevel_0.tmxR2i3175R3R4R5R19R6tgoR0y43:assets%2Fmaps%2Fld-48%2Ftiled%2Fld-48.worldR2i78R3R4R5R20R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R21R6tgoR0y28:assets%2Fdata%2Fdatabase.dpoR2i15R3R4R5R22R6tgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R4R5R23R6tgoR2i39740R3y5:SOUNDR5y32:assets%2Fsounds%2Flow-health.wavy9:pathGroupaR25hR6tgoR2i39788R3R24R5y35:assets%2Fsounds%2Fpause-out-new.wavR26aR27hR6tgoR2i8410R3R24R5y28:assets%2Fsounds%2Fimpact.wavR26aR28hR6tgoR2i22964R3R24R5y30:assets%2Fsounds%2Fpause-in.wavR26aR29hR6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R4R5R30R6tgoR2i40628R3R24R5y34:assets%2Fsounds%2Fpause-in-new.wavR26aR31hR6tgoR2i3672R3R24R5y32:assets%2Fsounds%2Fmouse-over.wavR26aR32hR6tgoR2i6900R3R24R5y31:assets%2Fsounds%2Fmenu-open.wavR26aR33hR6tgoR2i4584R3R24R5y33:assets%2Fsounds%2Fbullet-fire.wavR26aR34hR6tgoR2i19472R3R24R5y31:assets%2Fsounds%2Fpause-out.wavR26aR35hR6tgoR2i8378R3R24R5y34:assets%2Fsounds%2Fbutton-click.wavR26aR36hR6tgoR2i4578R3R24R5y31:assets%2Fsounds%2Fmenu-exit.wavR26aR37hR6tgoR2i12492R3R24R5y34:assets%2Fsounds%2Fenemy-impact.wavR26aR38hR6tgoR2i2114R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3R26aR40y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R39R5y28:flixel%2Fsounds%2Fflixel.mp3R26aR42y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i5794R3R24R5R41R26aR40R41hgoR2i33629R3R24R5R43R26aR42R43hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R44R45y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3R8R5R50R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R8R5R51R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	var manifest = lime_utils_AssetManifest.parse(data,ManifestResources.rootPath);
 	var library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -47540,20 +47540,20 @@ game_char_Actor.prototype = $extend(flixel_FlxSprite.prototype,{
 		if(this.moveToNextTile) {
 			switch(this.moveDirection._hx_index) {
 			case 0:
-				this.set_y(this.y - 1);
+				this.set_y(this.y - 4);
 				break;
 			case 1:
-				this.set_y(this.y + 1);
+				this.set_y(this.y + 4);
 				break;
 			case 2:
-				this.set_x(this.x - 1);
+				this.set_x(this.x - 4);
 				break;
 			case 3:
-				this.set_x(this.x + 1);
+				this.set_x(this.x + 4);
 				break;
 			}
 		}
-		if(this.x % 8 == 0 && this.y % 8 == 0) {
+		if(this.x % 32 == 0 && this.y % 32 == 0) {
 			this.moveToNextTile = false;
 		}
 	}
@@ -47613,7 +47613,16 @@ game_char_Player.prototype = $extend(game_char_Actor.prototype,{
 		this.actionNotify = new flixel_util__$FlxSignal_FlxSignal1();
 	}
 	,setupGraphics: function() {
-		this.makeGraphic(8,8,-1);
+		this.loadGraphic("assets/images/Player.png",true,32,32,true);
+		var fRate = 6;
+		this.animation.add("idle",[0],fRate);
+		this.animation.add("idle_up",[8],fRate);
+		this.animation.add("idle_left",[4],fRate);
+		this.animation.add("idle_right",[6],fRate);
+		this.animation.add("run_down",[1,0,2],fRate);
+		this.animation.add("run_left",[4,5],fRate);
+		this.animation.add("run_right",[6,7],fRate);
+		this.animation.add("run_up",[8,9,10],fRate);
 		this.createVirtualPad();
 		this.createSword();
 	}
@@ -47621,7 +47630,7 @@ game_char_Player.prototype = $extend(game_char_Actor.prototype,{
 	}
 	,createSword: function() {
 		var pos = this.getPosition();
-		var size = 8;
+		var size = 32;
 		this.swordHitBox = new flixel_FlxSprite(pos.x,pos.y);
 		this.swordHitBox.makeGraphic(size,size,-37993);
 		flixel_FlxG.game._state.add(this.swordHitBox);
@@ -47666,7 +47675,7 @@ game_char_Player.prototype = $extend(game_char_Actor.prototype,{
 		point1._weak = true;
 		var newPosition = playerMidPoint.copyTo(point1);
 		var offSet = this.get_width() / 2;
-		var tileSize = 8;
+		var tileSize = 32;
 		if(attack && this.canTakeAction) {
 			switch(this.facing) {
 			case 1:
@@ -47686,7 +47695,7 @@ game_char_Player.prototype = $extend(game_char_Actor.prototype,{
 				newPosition.set_y(newPosition.y + offSet);
 				break;
 			}
-			haxe_Log.trace("moved sword hit box",{ fileName : "source/game/char/Player.hx", lineNumber : 93, className : "game.char.Player", methodName : "processSwordPowerUp"});
+			haxe_Log.trace("moved sword hit box",{ fileName : "source/game/char/Player.hx", lineNumber : 102, className : "game.char.Player", methodName : "processSwordPowerUp"});
 			this.swordHitBox.setPosition(newPosition.x,newPosition.y);
 			this.startAction(game_char_Action.Attack);
 		}
@@ -47708,7 +47717,41 @@ game_char_Player.prototype = $extend(game_char_Actor.prototype,{
 				this.set_facing(16);
 			}
 		}
+		this.updateAnim(elapsed);
 		flixel_util_FlxSpriteUtil.bound(this);
+	}
+	,updateAnim: function(elapsed) {
+		if(this.moveToNextTile) {
+			switch(this.facing) {
+			case 1:
+				this.animation.play("run_left");
+				break;
+			case 16:
+				this.animation.play("run_right");
+				break;
+			case 256:
+				this.animation.play("run_up");
+				break;
+			case 4096:
+				this.animation.play("run_down");
+				break;
+			}
+		} else {
+			switch(this.facing) {
+			case 1:
+				this.animation.play("idle_left");
+				break;
+			case 16:
+				this.animation.play("idle_right");
+				break;
+			case 256:
+				this.animation.play("idle_up");
+				break;
+			case 4096:
+				this.animation.play("idle");
+				break;
+			}
+		}
 	}
 	,startAction: function(action) {
 		this.canTakeAction = false;
@@ -67240,7 +67283,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 136244;
+	this.version = 244611;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -113204,6 +113247,7 @@ openfl_display_DisplayObject.__tempStack = new lime_utils_ObjectPool(function() 
 AssetPaths.images_go_here__txt = "assets/images/images-go-here.txt";
 AssetPaths.dialog_arrow__png = "assets/images/dialog-arrow.png";
 AssetPaths.button__png = "assets/images/button.png";
+AssetPaths.Player__png = "assets/images/Player.png";
 AssetPaths.exit_door__png = "assets/images/exit-door.png";
 AssetPaths.affection_heart__png = "assets/images/affection-heart.png";
 AssetPaths.MRMOTEXT__png = "assets/images/MRMOTEXT.png";
@@ -113232,8 +113276,8 @@ AssetPaths.menu_exit__wav = "assets/sounds/menu-exit.wav";
 AssetPaths.enemy_impact__wav = "assets/sounds/enemy-impact.wav";
 Globals.GAME_TITLE = "Love Defense ";
 Globals.GAME_SAVE_SLOTS = 5;
-Globals.TILE_SIZE = 8;
-Globals.MOVEMENT_SPEED = 1;
+Globals.TILE_SIZE = 32;
+Globals.MOVEMENT_SPEED = 4;
 Globals.TEXT_START = "Start";
 Globals.TEXT_CONTINUE = "Continue";
 Globals.TEXT_EXIT = "Exit";
