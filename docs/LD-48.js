@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "7";
+	app.meta.h["build"] = "8";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "LD-48";
 	app.meta.h["name"] = "LD-48";
@@ -47588,6 +47588,8 @@ var game_char_Action = $hxEnums["game.char.Action"] = { __ename__:"game.char.Act
 };
 game_char_Action.__constructs__ = [game_char_Action.Attack,game_char_Action.Move];
 var game_char_Player = function(x,y,actorData) {
+	this.shielded = false;
+	this.canTakeAction = true;
 	this.hasHook = false;
 	this.hasWizardBag = false;
 	this.hasShield = false;
@@ -47620,6 +47622,15 @@ game_char_Player.prototype = $extend(game_char_Actor.prototype,{
 		if(this.hasSword) {
 			this.processSwordPowerUp(elapsed);
 		}
+		if(this.hasShield) {
+			this.processShieldPowerUp(elapsed);
+		}
+	}
+	,processShieldPowerUp: function(elapsed) {
+		var shield = flixel_FlxG.keys.checkKeyArrayState([88],2);
+		if(shield && this.canTakeAction) {
+			this.shielded = true;
+		}
 	}
 	,processSwordPowerUp: function(elapsed) {
 		var attack = flixel_FlxG.keys.checkKeyArrayState([90],2);
@@ -47647,7 +47658,7 @@ game_char_Player.prototype = $extend(game_char_Actor.prototype,{
 		var newPosition = playerMidPoint.copyTo(point1);
 		var offSet = this.get_width() / 2;
 		var tileSize = 8;
-		if(attack) {
+		if(attack && this.canTakeAction) {
 			switch(this.facing) {
 			case 1:
 				newPosition.set_y(newPosition.y - offSet);
@@ -47666,31 +47677,41 @@ game_char_Player.prototype = $extend(game_char_Actor.prototype,{
 				newPosition.set_y(newPosition.y + offSet);
 				break;
 			}
-			haxe_Log.trace("moved sword hit box",{ fileName : "source/game/char/Player.hx", lineNumber : 81, className : "game.char.Player", methodName : "processSwordPowerUp"});
+			haxe_Log.trace("moved sword hit box",{ fileName : "source/game/char/Player.hx", lineNumber : 93, className : "game.char.Player", methodName : "processSwordPowerUp"});
 			this.swordHitBox.setPosition(newPosition.x,newPosition.y);
-			this.actionNotify.dispatch(game_char_Action.Attack);
+			this.startAction(game_char_Action.Attack);
 		}
 	}
 	,updateMovement: function(elapsed) {
 		game_char_Actor.prototype.updateMovement.call(this,elapsed);
-		if(flixel_FlxG.keys.checkKeyArrayState([40,83],2)) {
-			this.moveTo(game_char_MoveDirection.DOWN);
-			this.set_facing(4096);
-		} else if(flixel_FlxG.keys.checkKeyArrayState([38,87],2)) {
-			this.moveTo(game_char_MoveDirection.UP);
-			this.set_facing(256);
-		} else if(flixel_FlxG.keys.checkKeyArrayState([37,65],2)) {
-			this.moveTo(game_char_MoveDirection.LEFT);
-			this.set_facing(1);
-		} else if(flixel_FlxG.keys.checkKeyArrayState([39,68],2)) {
-			this.moveTo(game_char_MoveDirection.RIGHT);
-			this.set_facing(16);
+		if(this.canTakeAction) {
+			if(flixel_FlxG.keys.checkKeyArrayState([40,83],2)) {
+				this.moveTo(game_char_MoveDirection.DOWN);
+				this.set_facing(4096);
+			} else if(flixel_FlxG.keys.checkKeyArrayState([38,87],2)) {
+				this.moveTo(game_char_MoveDirection.UP);
+				this.set_facing(256);
+			} else if(flixel_FlxG.keys.checkKeyArrayState([37,65],2)) {
+				this.moveTo(game_char_MoveDirection.LEFT);
+				this.set_facing(1);
+			} else if(flixel_FlxG.keys.checkKeyArrayState([39,68],2)) {
+				this.moveTo(game_char_MoveDirection.RIGHT);
+				this.set_facing(16);
+			}
 		}
 		flixel_util_FlxSpriteUtil.bound(this);
 	}
+	,startAction: function(action) {
+		this.canTakeAction = false;
+		this.actionNotify.dispatch(action);
+	}
+	,resetState: function() {
+		this.shielded = false;
+		this.canTakeAction = true;
+	}
 	,moveTo: function(direction) {
 		game_char_Actor.prototype.moveTo.call(this,direction);
-		this.actionNotify.dispatch(game_char_Action.Move);
+		this.startAction(game_char_Action.Move);
 	}
 	,__class__: game_char_Player
 });
@@ -47943,6 +47964,7 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 	}
 	,updateTurn: function() {
 		haxe_Log.trace("Turn Update",{ fileName : "source/game/states/LevelState.hx", lineNumber : 74, className : "game.states.LevelState", methodName : "updateTurn"});
+		this.player.resetState();
 	}
 	,createRegionEntities: function(regions,tileset) {
 		var regionLevel = new flixel_tile_FlxTilemap();
@@ -66893,7 +66915,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 418270;
+	this.version = 528181;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
