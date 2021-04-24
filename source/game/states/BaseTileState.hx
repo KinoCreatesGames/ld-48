@@ -21,8 +21,9 @@ class BaseTileState extends FlxState {
 	public var enemyGrp:FlxTypedGroup<Enemy>;
 
 	// Tile set names for particular groups
-	public static inline var TILESET_NAME:String = 'MRMOTEXT';
+	public static inline var TILESET_NAME:String = 'TilesClean';
 	public static inline var AUTO_TILESET_NAME:String = 'FloorAuto';
+	public static inline var GRASS_AUTO_TILESET:String = 'Grass';
 
 	override public function create() {
 		super.create();

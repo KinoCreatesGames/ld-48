@@ -106,7 +106,7 @@ class LevelState extends BaseTileState {
 			switch (tileId) {
 				case SPAWN:
 					// Set the player position on spawning
-					player.setPosition(coords.x - 8, coords.y - 8);
+					player.setPosition(coords.x, coords.y);
 				case CRACK:
 				// Create Crack Here as individual sprite sheet
 				// var sprite = new Goal(coords.x, coords.y);
@@ -170,6 +170,6 @@ class LevelState extends BaseTileState {
 	}
 
 	public override function tilesetPath() {
-		return AssetPaths.MRMOTEXT__png;
+		return AssetPaths.TilesClean__png;
 	}
 }
