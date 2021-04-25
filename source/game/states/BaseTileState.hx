@@ -12,6 +12,7 @@ class BaseTileState extends FlxState {
 	// Conditions
 	public var completeLevel:Bool;
 	public var gameOver:Bool;
+	public var gameLvl:FlxTilemap;
 	// Map Information
 	public var map:TiledMap;
 
@@ -117,6 +118,7 @@ class BaseTileState extends FlxState {
 	public function addLevelToGrp(tileLayer:TiledTileLayer,
 			tilesetPath:String, tileset:TiledTileSet) {
 		var level = new FlxTilemap();
+		gameLvl = level;
 		level.loadMapFromArray(tileLayer.tileArray, map.width, map.height,
 			tilesetPath, map.tileWidth, map.tileHeight,
 			FlxTilemapAutoTiling.OFF, tileset.firstGID, 1);

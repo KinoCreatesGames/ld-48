@@ -1,5 +1,7 @@
 package game.states;
 
+import game.objects.Hole;
+import flixel.FlxObject;
 import game.ui.PlayerHUD;
 import game.objects.Shield;
 import game.objects.Sword;
@@ -20,6 +22,13 @@ enum abstract RegionId(Int) from Int to Int {
 	var LEAF = 3;
 }
 
+enum abstract CollisionTiles(Int) from Int to Int {
+	var WALL_TOP = 44;
+	var INNER_WALL = 86;
+	var INNER_WALL_BOT = 125;
+	var FLOOR = 465;
+}
+
 class LevelState extends BaseTileState {
 	// Single Objects
 	public var player:Player;
@@ -28,6 +37,7 @@ class LevelState extends BaseTileState {
 	// Groups
 	public var collectibleGrp:FlxTypedGroup<Collectible>;
 	public var enemyBulletGrp:FlxTypedGroup<Bullet>;
+	public var holeGrp:FlxTypedGroup<Hole>;
 
 	// Sounds
 	public var pauseInSound:FlxSound;
@@ -37,6 +47,7 @@ class LevelState extends BaseTileState {
 		createSounds();
 		createEnemyGroups();
 		createPlayer();
+		createInteractableGroups();
 	}
 
 	override public function addGroups() {
@@ -44,6 +55,7 @@ class LevelState extends BaseTileState {
 		// add(regionGrp);
 		add(player);
 		add(enemyBulletGrp);
+		add(holeGrp);
 		// add(packageGrp);
 		// add(playerHUD);
 	}
@@ -60,6 +72,10 @@ class LevelState extends BaseTileState {
 		player = new Player(0, 0, null);
 	}
 
+	public function createInteractableGroups() {
+		holeGrp = new FlxTypedGroup<Hole>();
+	}
+
 	override public function createUI() {
 		super.createUI();
 		playerHUD = new PlayerHUD(0, 0, player);
@@ -74,8 +90,21 @@ class LevelState extends BaseTileState {
 
 		createTurnAction();
 		createLevelMap(tileLayer, autoTileLayer);
+		setupLevelTileProperties();
 		createRegionEntities(regionLayer, regionTileset);
 		createTiledEntities(entityLayer);
+	}
+
+	public function setupLevelTileProperties() {
+		var tileset = map.getTileSet('TilesClean');
+		trace(gameLvl);
+		[WALL_TOP, INNER_WALL_BOT, INNER_WALL].iter((collId) -> {
+			gameLvl.setTileProperties(collId + tileset.firstGID, FlxObject.ANY);
+		});
+		[FLOOR].iter((collId) -> {
+			gameLvl.setTileProperties(collId + tileset.firstGID,
+				FlxObject.NONE);
+		});
 	}
 
 	public function createTurnAction() {
@@ -113,6 +142,8 @@ class LevelState extends BaseTileState {
 				// regionGrp.add(sprite);
 				case FALL:
 					// Create Fall Here As Individual SpriteSheet
+					var hole = new Hole(coords.x, coords.y);
+					holeGrp.add(hole);
 			}
 		}
 	}
@@ -123,6 +154,10 @@ class LevelState extends BaseTileState {
 		super.processCollision();
 		FlxG.overlap(player, collectibleGrp, playerTouchCollectible);
 		FlxG.overlap(player.swordHitBox, null, playerSwordTouchGrass);
+		FlxG.overlap(player, holeGrp, playerTouchHole);
+		FlxG.collide(player, lvlGrp, (plyr:Player, lvl) -> {
+			plyr.moveToNextTile = false;
+		});
 	}
 
 	public function playerTouchCollectible(player:Player,
@@ -138,6 +173,13 @@ class LevelState extends BaseTileState {
 			case Hook:
 				player.hasHook = true;
 		}
+	}
+
+	public function playerTouchHole(player:Player, hole:Hole) {
+		// Move Down a level & Save Player current position
+		// Use that position as the new spawn point.
+		trace('Move to next level');
+		GameGlobals.savePlayerPosition(player);
 	}
 
 	// TODO: Change to cuttable object
