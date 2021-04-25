@@ -41,11 +41,14 @@ class Enemy extends game.char.Actor {
 	}
 
 	public function startPhase() {
-		currentNode = this.path.activePathNode().copyTo(FlxPoint.weak(0, 0));
-		updateFacingRelationToPoint(currentNode);
-		moveTo(facingToDirection());
-		moveToNextTile = true;
-		ai.currentState = moving;
+		if (this.path.activePathNode() != null) {
+			currentNode = this.path.activePathNode()
+				.copyTo(FlxPoint.weak(0, 0));
+			updateFacingRelationToPoint(currentNode);
+			moveTo(facingToDirection());
+			moveToNextTile = true;
+			ai.currentState = moving;
+		}
 	}
 
 	public function facingToDirection() {
@@ -88,10 +91,9 @@ class Enemy extends game.char.Actor {
 		// }
 		if ((x % Globals.TILE_SIZE == 0) && (y % Globals.TILE_SIZE == 0)) {
 			moveToNextTile = false;
-			trace(currentNode, this.getPosition());
+			previousPosition = this.getPosition();
 			if (currentNode.equals(this.getPosition())) {
 				// Assign new Node
-				trace((this.path.nodeIndex) % this.path.nodes.length);
 				this.path.setNode((this.path.nodeIndex) % this.path.nodes.length);
 				currentNode = this.path.activePathNode()
 					.copyTo(FlxPoint.weak(0, 0));
@@ -117,7 +119,6 @@ class Enemy extends game.char.Actor {
 		var right = diffPoint.x > 0;
 		var up = diffPoint.y < heightDiff.negate();
 		var down = diffPoint.y > heightDiff;
-		trace(heightDiff, diffPoint.y);
 		if (up) {
 			facing = FlxObject.UP;
 		} else if (down) {

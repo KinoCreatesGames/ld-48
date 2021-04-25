@@ -30,7 +30,8 @@ class Player extends Actor {
 	}
 
 	override public function setupGraphics() {
-		loadGraphic(AssetPaths.Player__png, true, 32, 32, true);
+		loadGraphic(AssetPaths.Player_Sprite_Cleaned_v2__png, true, 32, 32,
+			true);
 		var fRate = 6;
 		animation.add('idle', [0], fRate);
 		animation.add('idle_up', [8], fRate);

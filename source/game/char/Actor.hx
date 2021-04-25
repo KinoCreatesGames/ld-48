@@ -17,6 +17,7 @@ class Actor extends FlxSprite {
 
 	public var moveDirection:MoveDirection;
 	public var moveToNextTile:Bool;
+	public var previousPosition:FlxPoint;
 
 	public function new(x:Float, y:Float, actorData:ActorData) {
 		super(x, y);
@@ -63,6 +64,7 @@ class Actor extends FlxSprite {
 
 		if ((x % Globals.TILE_SIZE == 0) && (y % Globals.TILE_SIZE == 0)) {
 			moveToNextTile = false;
+			previousPosition = this.getPosition();
 		}
 	}
 
@@ -70,6 +72,12 @@ class Actor extends FlxSprite {
 		if (!moveToNextTile) {
 			moveDirection = direction;
 			moveToNextTile = true;
+		}
+	}
+
+	public function resetPosition() {
+		if (previousPosition != null) {
+			this.setPosition(previousPosition.x, previousPosition.y);
 		}
 	}
 }

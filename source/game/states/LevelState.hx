@@ -1,5 +1,6 @@
 package game.states;
 
+import game.objects.Fly;
 import game.objects.Chest;
 import game.objects.Hole;
 import flixel.FlxObject;
@@ -21,6 +22,8 @@ enum abstract RegionId(Int) from Int to Int {
 	var CRACK = 1;
 	var FALL = 2;
 	var LEAF = 3;
+	var FLY = 4;
+	var WALL = 5;
 }
 
 enum abstract CollisionTiles(Int) from Int to Int {
@@ -28,6 +31,8 @@ enum abstract CollisionTiles(Int) from Int to Int {
 	var INNER_WALL = 86;
 	var INNER_WALL_BOT = 125;
 	var FLOOR = 465;
+	var FLOOR2 = 505;
+	var FLOOR3 = 464;
 }
 
 enum abstract EntityTypes(String) from String to String {
@@ -45,6 +50,7 @@ class LevelState extends BaseTileState {
 	public var enemyBulletGrp:FlxTypedGroup<Bullet>;
 	public var holeGrp:FlxTypedGroup<Hole>;
 	public var chestGrp:FlxTypedGroup<Chest>;
+	public var wallGrp:FlxTypedGroup<FlxSprite>;
 
 	// Sounds
 	public var pauseInSound:FlxSound;
@@ -64,6 +70,8 @@ class LevelState extends BaseTileState {
 		add(enemyBulletGrp);
 		add(holeGrp);
 		add(chestGrp);
+		add(collectibleGrp);
+		add(wallGrp);
 		// add(packageGrp);
 		// add(playerHUD);
 	}
@@ -81,7 +89,7 @@ class LevelState extends BaseTileState {
 		var save = new FlxSave();
 		if (save.bind('position')) {
 			var position = save.data.position;
-			trace(position);
+
 			if (position != null) {
 				player.setPosition(position.x, position.y);
 			}
@@ -90,6 +98,8 @@ class LevelState extends BaseTileState {
 	}
 
 	public function createInteractableGroups() {
+		wallGrp = new FlxTypedGroup<FlxSprite>();
+		collectibleGrp = new FlxTypedGroup<Collectible>();
 		chestGrp = new FlxTypedGroup<Chest>();
 		holeGrp = new FlxTypedGroup<Hole>();
 	}
@@ -115,11 +125,11 @@ class LevelState extends BaseTileState {
 
 	public function setupLevelTileProperties() {
 		var tileset = map.getTileSet('TilesClean');
-		trace(gameLvl);
+
 		[WALL_TOP, INNER_WALL_BOT, INNER_WALL].iter((collId) -> {
 			gameLvl.setTileProperties(collId + tileset.firstGID, FlxObject.ANY);
 		});
-		[FLOOR].iter((collId) -> {
+		[FLOOR, FLOOR2, FLOOR3].iter((collId) -> {
 			gameLvl.setTileProperties(collId + tileset.firstGID,
 				FlxObject.NONE);
 		});
@@ -155,7 +165,15 @@ class LevelState extends BaseTileState {
 			switch (tileId) {
 				case SPAWN:
 					// Set the player position on spawning
-					player.setPosition(coords.x, coords.y);
+					var save = new FlxSave();
+					if (save.bind('position')) {
+						var position = save.data.position;
+						if (position == null) {
+							player.setPosition(coords.x, coords.y);
+						}
+						save.close();
+					}
+
 				case CRACK:
 				// Create Crack Here as individual sprite sheet
 				// var sprite = new Goal(coords.x, coords.y);
@@ -164,6 +182,13 @@ class LevelState extends BaseTileState {
 					// Create Fall Here As Individual SpriteSheet
 					var hole = new Hole(coords.x, coords.y);
 					holeGrp.add(hole);
+				case FLY:
+					var fly = new Fly(coords.x, coords.y);
+					collectibleGrp.add(fly);
+				case WALL:
+					var wall = new FlxSprite(coords.x, coords.y);
+					wall.makeGraphic(32, 32, KColor.TRANSPARENT);
+					wallGrp.add(wall);
 			}
 		}
 	}
@@ -204,8 +229,20 @@ class LevelState extends BaseTileState {
 		FlxG.overlap(player, collectibleGrp, playerTouchCollectible);
 		FlxG.overlap(player.swordHitBox, null, playerSwordTouchGrass);
 		FlxG.overlap(player, holeGrp, playerTouchHole);
+		FlxG.collide(player, enemyGrp, (plyr:Player, enemy:Enemy) -> {
+			plyr.moveToNextTile = false;
+			enemy.moveToNextTile = false;
+			plyr.resetPosition();
+			enemy.resetPosition();
+			plyr.takeDamage(1);
+		});
 		FlxG.collide(player, lvlGrp, (plyr:Player, lvl) -> {
 			plyr.moveToNextTile = false;
+			plyr.resetPosition();
+		});
+		FlxG.collide(player, wallGrp, (plyr:Player, lvl) -> {
+			plyr.moveToNextTile = false;
+			plyr.resetPosition();
 		});
 	}
 
@@ -221,13 +258,23 @@ class LevelState extends BaseTileState {
 				player.hasWizardBag = true;
 			case Hook:
 				player.hasHook = true;
+			case Fly:
+				var save = new FlxSave();
+				save.bind('position');
+				var pos = collectible.getPosition();
+				save.data.position = new FlxPoint(pos.x, collectible.initialY);
+				save.close();
+				FlxG.camera.fade(KColor.BLACK, 1, false, () -> {
+					gotoPreviousLevel();
+					FlxG.camera.fade(KColor.BLACK, 1, true);
+				});
 		}
 	}
 
 	public function playerTouchHole(player:Player, hole:Hole) {
 		// Move Down a level & Save Player current position
 		// Use that position as the new spawn point.
-		trace('Move to next level');
+
 		var save = new FlxSave();
 		save.bind('position');
 		save.data.position = hole.getPosition();
@@ -239,6 +286,8 @@ class LevelState extends BaseTileState {
 	}
 
 	public function gotoNextLevel() {}
+
+	public function gotoPreviousLevel() {}
 
 	// TODO: Change to cuttable object
 	public function playerSwordTouchGrass(sword:FlxSprite,
