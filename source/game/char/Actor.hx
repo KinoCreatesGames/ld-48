@@ -45,7 +45,6 @@ class Actor extends FlxSprite {
 
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
-		updateMovement(elapsed);
 	}
 
 	public function updateMovement(elapsed:Float) {

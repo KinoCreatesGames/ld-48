@@ -78,3 +78,23 @@ enum Rating {
 	Great;
 	Amazing;
 }
+
+/**
+ * Chest Types for the loot you'll find in the game.
+ * May be used or we just show the items themselves.
+ */
+enum ChestTypes {
+	ShieldChest;
+	SwordChest;
+	WizardBagChest;
+	HookChest;
+}
+
+/**
+ * Enemy Types that appear in game and can be created.
+ * 
+ */
+enum EnemyTypes {
+	Grunt;
+	Archer;
+}

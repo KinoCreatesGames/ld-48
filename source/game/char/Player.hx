@@ -62,6 +62,7 @@ class Player extends Actor {
 
 	override public function update(elapsed:Float) {
 		super.update(elapsed);
+		updateMovement(elapsed);
 		if (hasSword) {
 			processSwordPowerUp(elapsed);
 		}
@@ -179,5 +180,11 @@ class Player extends Actor {
 	override public function moveTo(direction:MoveDirection) {
 		super.moveTo(direction);
 		startAction(Move);
+	}
+
+	public function takeDamage(damage:Int) {
+		this.health -= damage;
+		this.health = this.health.clampf(0, 10);
+		FlxG.camera.shake(0.1, 0.1);
 	}
 }

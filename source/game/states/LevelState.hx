@@ -1,5 +1,6 @@
 package game.states;
 
+import game.objects.Chest;
 import game.objects.Hole;
 import flixel.FlxObject;
 import game.ui.PlayerHUD;
@@ -29,6 +30,11 @@ enum abstract CollisionTiles(Int) from Int to Int {
 	var FLOOR = 465;
 }
 
+enum abstract EntityTypes(String) from String to String {
+	var CHEST = 'Chest';
+	var ENEMY = 'Enemy';
+}
+
 class LevelState extends BaseTileState {
 	// Single Objects
 	public var player:Player;
@@ -38,6 +44,7 @@ class LevelState extends BaseTileState {
 	public var collectibleGrp:FlxTypedGroup<Collectible>;
 	public var enemyBulletGrp:FlxTypedGroup<Bullet>;
 	public var holeGrp:FlxTypedGroup<Hole>;
+	public var chestGrp:FlxTypedGroup<Chest>;
 
 	// Sounds
 	public var pauseInSound:FlxSound;
@@ -56,6 +63,7 @@ class LevelState extends BaseTileState {
 		add(player);
 		add(enemyBulletGrp);
 		add(holeGrp);
+		add(chestGrp);
 		// add(packageGrp);
 		// add(playerHUD);
 	}
@@ -70,9 +78,19 @@ class LevelState extends BaseTileState {
 
 	public function createPlayer() {
 		player = new Player(0, 0, null);
+		var save = new FlxSave();
+		if (save.bind('position')) {
+			var position = save.data.position;
+			trace(position);
+			if (position != null) {
+				player.setPosition(position.x, position.y);
+			}
+			save.close();
+		}
 	}
 
 	public function createInteractableGroups() {
+		chestGrp = new FlxTypedGroup<Chest>();
 		holeGrp = new FlxTypedGroup<Hole>();
 	}
 
@@ -116,7 +134,9 @@ class LevelState extends BaseTileState {
 	public function updateTurn() {
 		// Update Turn For All Game Elements
 		trace('Turn Update');
-
+		enemyGrp.members.iter((enemy) -> {
+			enemy.startPhase();
+		});
 		// Turn Updates For Everybody
 		// Player can finally move again
 		player.resetState();
@@ -148,7 +168,36 @@ class LevelState extends BaseTileState {
 		}
 	}
 
-	public function createTiledEntities(entities:TiledObjectLayer) {}
+	public function createTiledEntities(entities:TiledObjectLayer) {
+		entities.objects.iter((entity) -> {
+			switch (entity.name) {
+				case ENEMY:
+					var enemy = new Enemy(entity.x, entity.y,
+						getPoints(entity), null);
+					enemyGrp.add(enemy);
+				case CHEST:
+					// Create Chest
+					var chest = new Chest(entity.x, entity.y);
+					chestGrp.add(chest);
+				case _:
+					// Do nothing
+			}
+		});
+	}
+
+	private function getPoints(tiledObject:TiledObject) {
+		var points = [];
+		for (key => value in tiledObject.properties.keys) {
+			if (key.contains('Path')) {
+				var xy = tiledObject.properties.get(key).split(",").map(num -> {
+					Std.parseFloat(num);
+				});
+				points.push(new FlxPoint(xy[0] * map.tileWidth,
+					xy[1] * map.tileHeight));
+			}
+		}
+		return points;
+	}
 
 	override public function processCollision() {
 		super.processCollision();
@@ -179,8 +228,17 @@ class LevelState extends BaseTileState {
 		// Move Down a level & Save Player current position
 		// Use that position as the new spawn point.
 		trace('Move to next level');
-		GameGlobals.savePlayerPosition(player);
+		var save = new FlxSave();
+		save.bind('position');
+		save.data.position = hole.getPosition();
+		save.close();
+		FlxG.camera.fade(KColor.BLACK, 1, false, () -> {
+			gotoNextLevel();
+			FlxG.camera.fade(KColor.BLACK, 1, true);
+		});
 	}
+
+	public function gotoNextLevel() {}
 
 	// TODO: Change to cuttable object
 	public function playerSwordTouchGrass(sword:FlxSprite,
