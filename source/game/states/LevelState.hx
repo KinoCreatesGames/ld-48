@@ -1,5 +1,6 @@
 package game.states;
 
+import game.objects.Lotus;
 import game.objects.Fly;
 import game.objects.Chest;
 import game.objects.Hole;
@@ -24,6 +25,7 @@ enum abstract RegionId(Int) from Int to Int {
 	var LEAF = 3;
 	var FLY = 4;
 	var WALL = 5;
+	var LOTUS = 6;
 }
 
 enum abstract CollisionTiles(Int) from Int to Int {
@@ -190,6 +192,9 @@ class LevelState extends BaseTileState {
 					var wall = new FlxSprite(coords.x, coords.y);
 					wall.makeGraphic(32, 32, KColor.TRANSPARENT);
 					wallGrp.add(wall);
+				case LOTUS:
+					var lotus = new Lotus(coords.x, coords.y);
+					collectibleGrp.add(lotus);
 			}
 		}
 	}
@@ -271,6 +276,11 @@ class LevelState extends BaseTileState {
 					gotoPreviousLevel();
 					FlxG.camera.fade(KColor.BLACK, 1, true);
 				});
+			case Lotus:
+				// Complete the game
+				completeLevel = true;
+				// Different Final Text Based on how much health
+				// you have left
 		}
 	}
 
