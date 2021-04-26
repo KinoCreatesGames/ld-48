@@ -888,13 +888,13 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "34";
+	app.meta.h["build"] = "35";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "LD-48";
-	app.meta.h["name"] = "LD-48";
+	app.meta.h["name"] = "Nalin Bermet";
 	app.meta.h["packageName"] = "com.example.myapp";
 	app.meta.h["version"] = "0.0.1";
-	var attributes = { allowHighDPI : false, alwaysOnTop : false, borderless : false, element : null, frameRate : 60, height : 512, hidden : false, maximized : false, minimized : false, parameters : { }, resizable : true, title : "LD-48", width : 512, x : null, y : null};
+	var attributes = { allowHighDPI : false, alwaysOnTop : false, borderless : false, element : null, frameRate : 60, height : 512, hidden : false, maximized : false, minimized : false, parameters : { }, resizable : true, title : "Nalin Bermet", width : 512, x : null, y : null};
 	attributes.context = { antialiasing : 0, background : 0, colorDepth : 32, depth : true, hardware : true, stencil : true, type : null, vsync : false};
 	if(app.__window == null) {
 		if(config != null) {
@@ -48839,7 +48839,7 @@ game_states_BootState.prototype = $extend(flixel_FlxState.prototype,{
 		healthSave.bind("health");
 		healthSave.data.health = 3;
 		healthSave.close();
-		var nextState = new game_states_IntroCutScene();
+		var nextState = new game_states_TitleState();
 		if(flixel_FlxG.game._state.switchTo(nextState)) {
 			flixel_FlxG.game._requestedState = nextState;
 		}
@@ -48980,7 +48980,7 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 		this.wallImpactSound = flixel_FlxG.sound.load("assets/sounds/wall-impact.wav");
 		this.flySound = flixel_FlxG.sound.load("assets/sounds/wing-sound.wav");
 		this.holeFallSound = flixel_FlxG.sound.load("assets/sounds/hole-fall-sound.wav");
-		if(flixel_FlxG.sound.music._channel != null == false) {
+		if(flixel_FlxG.sound.music != null && flixel_FlxG.sound.music._channel != null == false) {
 			flixel_FlxG.sound.playMusic("assets/music/DarkWinds.OGG",0.65,true);
 		}
 	}
@@ -49661,8 +49661,6 @@ game_states_TitleState.prototype = $extend(flixel_FlxState.prototype,{
 		this.creditsButton.canClick = false;
 		this.creditsButton.set_alpha(0);
 		this.add(this.playButton);
-		this.add(this.optionsButton);
-		this.add(this.creditsButton);
 	}
 	,update: function(elapsed) {
 		flixel_FlxState.prototype.update.call(this,elapsed);
@@ -49746,6 +49744,10 @@ game_states_TitleState.prototype = $extend(flixel_FlxState.prototype,{
 		}
 	}
 	,clickStart: function() {
+		var nextState = new game_states_IntroCutScene();
+		if(flixel_FlxG.game._state.switchTo(nextState)) {
+			flixel_FlxG.game._requestedState = nextState;
+		}
 	}
 	,clickOptions: function() {
 	}
@@ -49760,7 +49762,7 @@ game_states_TitleState.prototype = $extend(flixel_FlxState.prototype,{
 	,createCredits: function() {
 		var textWidth = 200;
 		var textSize = 12;
-		var creditsText = new flixel_text_FlxText(flixel_FlxG.width - textWidth,flixel_FlxG.height - 100,textWidth,"Created by KinoCreates",textSize);
+		var creditsText = new flixel_text_FlxText(flixel_FlxG.width - textWidth,flixel_FlxG.height - 100,textWidth,"Created by Kino & Ayzu",textSize);
 		this.add(creditsText);
 	}
 	,createVersion: function() {
@@ -68731,7 +68733,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 182915;
+	this.version = 995052;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
