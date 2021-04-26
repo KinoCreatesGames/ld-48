@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "26";
+	app.meta.h["build"] = "27";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "LD-48";
 	app.meta.h["name"] = "LD-48";
@@ -49034,7 +49034,6 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 		});
 	}
 	,updateTurn: function() {
-		haxe_Log.trace("Turn Update",{ fileName : "source/game/states/LevelState.hx", lineNumber : 157, className : "game.states.LevelState", methodName : "updateTurn"});
 		Lambda.iter(this.enemyGrp.members,function(enemy) {
 			enemy.startPhase();
 		});
@@ -49166,7 +49165,9 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 			var pos = collectible.getPosition();
 			save.data.position = new flixel_math_FlxPoint(pos.x,collectible.initialY);
 			save.close();
-			this.flySound.play();
+			if(this.flySound._channel != null == false) {
+				this.flySound.play();
+			}
 			flixel_FlxG.camera.fade(-16777216,1,false,function() {
 				_gthis.gotoPreviousLevel();
 				flixel_FlxG.camera.fade(-16777216,1,true);
@@ -49195,7 +49196,9 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 		save.bind("position");
 		save.data.position = hole.getPosition();
 		save.close();
-		this.holeFallSound.play();
+		if(this.holeFallSound._channel != null == false) {
+			this.holeFallSound.play();
+		}
 		flixel_FlxG.camera.fade(-16777216,1,false,function() {
 			_gthis.gotoNextLevel();
 			flixel_FlxG.camera.fade(-16777216,1,true);
@@ -68708,7 +68711,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 595978;
+	this.version = 132087;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
