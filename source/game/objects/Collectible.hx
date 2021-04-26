@@ -10,6 +10,9 @@ class Collectible extends FlxSprite {
 		super(x, y);
 		this.initialY = y;
 		setSprite();
+		this.width -= VARIANCE;
+		this.height -= VARIANCE;
+		this.updateHitbox();
 	}
 
 	public function setSprite() {}
