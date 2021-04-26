@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "21";
+	app.meta.h["build"] = "22";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "LD-48";
 	app.meta.h["name"] = "LD-48";
@@ -48042,81 +48042,6 @@ game_KPath.prototype = $extend(flixel_util_FlxPath.prototype,{
 	}
 	,__class__: game_KPath
 });
-var game_SaveLoad = function() {
-	flixel_FlxBasic.call(this);
-};
-$hxClasses["game.SaveLoad"] = game_SaveLoad;
-game_SaveLoad.__name__ = "game.SaveLoad";
-game_SaveLoad.__properties__ = {get_Save:"get_Save"};
-game_SaveLoad.initializeSave = function() {
-	var save = new game_SaveLoad();
-	save.gameData = { gameTime : 0};
-	flixel_FlxG.plugins.list.push(save);
-};
-game_SaveLoad.get_Save = function() {
-	return js_Boot.__cast(flixel_FlxG.plugins.get(game_SaveLoad) , game_SaveLoad);
-};
-game_SaveLoad.__super__ = flixel_FlxBasic;
-game_SaveLoad.prototype = $extend(flixel_FlxBasic.prototype,{
-	get_TextSpeed: function() {
-		var save = this.createSaveSettings();
-		var modeText = save.data.modeText;
-		switch(modeText) {
-		case "Fast":
-			return 0.01;
-		case "Normal":
-			return 0.05;
-		case "Slow":
-			return 0.20;
-		default:
-			return 0.05;
-		}
-	}
-	,get_TextMode: function() {
-		var save = this.createSaveSettings();
-		var modeText = save.data.modeText;
-		save.close();
-		return modeText;
-	}
-	,get_SkipMiniGames: function() {
-		var save = this.createSaveSettings();
-		var skipMiniGames = save.data.skipMiniGames;
-		save.close();
-		return skipMiniGames;
-	}
-	,createSaveSettings: function() {
-		var save = new flixel_util_FlxSave();
-		save.bind("SoulSettings");
-		return save;
-	}
-	,loadSettings: function() {
-		var save = this.createSaveSettings();
-		if(save.data.volume != null) {
-			flixel_FlxG.sound.set_volume(save.data.volume);
-		}
-		var tmp = save.data.skipMiniGames != null;
-		if(save.data.modeText == null) {
-			save.data.modeText = "Normal";
-		}
-		save.close();
-	}
-	,createSaveData: function(saveId) {
-		var save = new flixel_util_FlxSave();
-		save.bind("SoulData" + saveId);
-		return save;
-	}
-	,createLoadSaveData: function(saveId) {
-		return this.createSaveData(saveId);
-	}
-	,loadSaveData: function(saveId,loadFn) {
-		var save = this.createSaveData(saveId);
-		var data = save.data.saveData;
-		loadFn(data);
-		save.close();
-	}
-	,__class__: game_SaveLoad
-	,__properties__: $extend(flixel_FlxBasic.prototype.__properties__,{get_SkipMiniGames:"get_SkipMiniGames",get_TextMode:"get_TextMode",get_TextSpeed:"get_TextSpeed"})
-});
 var game_State = function(initialState) {
 	this.currentState = initialState;
 };
@@ -49003,7 +48928,7 @@ game_states_CutsceneState.prototype = $extend(flixel_FlxState.prototype,{
 		this.textComplete = false;
 		var currentText = this.textList[this.textIndex % this.textList.length];
 		this.sceneText.resetText(currentText.text);
-		this.sceneText.start(game_SaveLoad.get_Save().get_TextSpeed(),false,false,[32],function() {
+		this.sceneText.start(0.1,false,false,[32],function() {
 			_gthis.textComplete = true;
 		});
 		this.textDelay = 0;
@@ -68777,7 +68702,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 585562;
+	this.version = 962959;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -115813,8 +115738,6 @@ flixel_util_FlxSort.DESCENDING = 1;
 flixel_util_FlxSpriteUtil.flashGfxSprite = new openfl_display_Sprite();
 flixel_util_FlxSpriteUtil.flashGfx = flixel_util_FlxSpriteUtil.flashGfxSprite.get_graphics();
 flixel_util_LabelValuePair._pool = new flixel_util_FlxPool_$flixel_$util_$LabelValuePair(flixel_util_LabelValuePair);
-game_SaveLoad.SAVE_SETTINGS = "SoulSettings";
-game_SaveLoad.SAVE_DATA_PREFIX = "SoulData";
 game_ext_KColor.WINTER_SKY = -14651649;
 game_ext_KColor.RICH_BLACK = -15986934;
 game_ext_KColor.EMERALD = -14430613;
