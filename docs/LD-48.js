@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "24";
+	app.meta.h["build"] = "25";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "LD-48";
 	app.meta.h["name"] = "LD-48";
@@ -49147,7 +49147,9 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 				plyr.moveToNextTile = false;
 				plyr.resetPosition();
 			},flixel_FlxObject.separate);
+			flixel_FlxG.overlap(this.enemyGrp,this.lvlGrp,null,flixel_FlxObject.separate);
 		}
+		flixel_FlxG.overlap(this.enemyGrp,this.wallGrp,null,flixel_FlxObject.separate);
 		flixel_FlxG.overlap(this.player,this.wallGrp,function(plyr,lvl) {
 			_gthis.wallImpactSound.play();
 			plyr.moveToNextTile = false;
@@ -68706,7 +68708,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 760045;
+	this.version = 999175;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
