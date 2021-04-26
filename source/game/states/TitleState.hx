@@ -86,8 +86,7 @@ class TitleState extends FlxState {
 		creditsButton.canClick = false;
 		creditsButton.alpha = 0;
 		add(playButton);
-		add(optionsButton);
-		add(creditsButton);
+
 		#if desktop
 		exitButton.canClick = false;
 		exitButton.alpha = 0;
@@ -145,10 +144,7 @@ class TitleState extends FlxState {
 	}
 
 	public function clickStart() {
-		// var introText = DepotData.Cutscene.lines.getByFn((el) ->
-		// 	el.name == 'Intro');
-		// FlxG.switchState(new CutsceneState(new HubState(),
-		// 	introText.cutsceneText));
+		FlxG.switchState(new IntroCutScene());
 	}
 
 	public function clickOptions() {
@@ -179,7 +175,7 @@ Left/Right: A/Left, S/Right', textSize);
 		var textWidth = 200;
 		var textSize = 12;
 		var creditsText = new FlxText(FlxG.width - textWidth,
-			FlxG.height - 100, textWidth, 'Created by KinoCreates', textSize);
+			FlxG.height - 100, textWidth, 'Created by Kino & Ayzu', textSize);
 		add(creditsText);
 	}
 
