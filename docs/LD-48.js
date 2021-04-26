@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "37";
+	app.meta.h["build"] = "38";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "LD-48";
 	app.meta.h["name"] = "Nalin Bermet";
@@ -49765,7 +49765,7 @@ game_states_TitleState.prototype = $extend(flixel_FlxState.prototype,{
 	,createCredits: function() {
 		var textWidth = 200;
 		var textSize = 12;
-		var creditsText = new flixel_text_FlxText(flixel_FlxG.width - textWidth,flixel_FlxG.height - 100,textWidth,"Created by Kino & Ayzu",textSize);
+		var creditsText = new flixel_text_FlxText(flixel_FlxG.width - textWidth,flixel_FlxG.height - 100,textWidth,"Created by Kino & Ayzu\nMusic By Zefz",textSize);
 		this.add(creditsText);
 	}
 	,createVersion: function() {
@@ -68736,7 +68736,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 302875;
+	this.version = 421667;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
