@@ -89,7 +89,7 @@ class LevelState extends BaseTileState {
 		wallImpactSound = FlxG.sound.load(AssetPaths.wall_impact__wav);
 		flySound = FlxG.sound.load(AssetPaths.wing_sound__wav);
 		holeFallSound = FlxG.sound.load(AssetPaths.hole_fall_sound__wav);
-		if (FlxG.sound.music.playing == false) {
+		if (FlxG.sound.music != null && FlxG.sound.music.playing == false) {
 			FlxG.sound.playMusic(AssetPaths.DarkWinds__OGG, 0.65, true);
 		}
 	}

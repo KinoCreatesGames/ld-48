@@ -10,6 +10,6 @@ class BootState extends FlxState {
 		healthSave.bind('health');
 		healthSave.data.health = 3;
 		healthSave.close();
-		FlxG.switchState(new IntroCutScene());
+		FlxG.switchState(new TitleState());
 	}
 }
