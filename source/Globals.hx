@@ -1,6 +1,6 @@
 class Globals {
 	// Game Basics
-	public static inline var GAME_TITLE = 'Love Defense ';
+	public static inline var GAME_TITLE = 'Nalin Bermet';
 	public static inline var GAME_SAVE_SLOTS:Int = 5;
 
 	// Tile Size for grid based movement
