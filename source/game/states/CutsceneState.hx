@@ -115,7 +115,7 @@ class CutsceneState extends FlxState {
 		textComplete = false;
 		var currentText = textList[textIndex % textList.length];
 		sceneText.resetText(currentText.text);
-		sceneText.start(SaveLoad.Save.TextSpeed, false, false, [SPACE], () -> {
+		sceneText.start(0.1, false, false, [SPACE], () -> {
 			textComplete = true;
 		});
 		textDelay = 0;
