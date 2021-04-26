@@ -92,6 +92,9 @@ class LevelState extends BaseTileState {
 		if (FlxG.sound.music != null && FlxG.sound.music.playing == false) {
 			FlxG.sound.playMusic(AssetPaths.DarkWinds__OGG, 0.65, true);
 		}
+		if (FlxG.sound.music == null) {
+			FlxG.sound.playMusic(AssetPaths.DarkWinds__OGG, 0.65, true);
+		}
 	}
 
 	public function createEnemyGroups() {

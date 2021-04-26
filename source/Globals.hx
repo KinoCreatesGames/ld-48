@@ -22,7 +22,7 @@ class Globals {
 	public static inline var TEXT_LEVEL_NEXT = 'Next';
 	public static inline var TEXT_LEVEL_WIN = 'Congratulations!!';
 	public static inline var TEXT_RETURN = 'Return';
-	public static inline var TEXT_VERSION = 'Version: 0.0.1';
+	public static inline var TEXT_VERSION = 'Version: 1.0.0';
 	public static inline var TEXT_CREDITS = 'Credits';
 	public static inline var TIME_BONUS:Int = 100;
 	public static inline var CMD_TIME_SCALE = 0.015;
