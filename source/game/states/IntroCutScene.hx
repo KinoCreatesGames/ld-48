@@ -4,14 +4,9 @@ class IntroCutScene extends CutsceneState {
 	public function new() {
 		super(new LevelOne(), [
 			{
-				text: 'In our small village, there exists a myth.',
+				text: 'In our small village, there exists a myth. Anyone who can obtain a lotus from the bottom of the well...their wish will be granted.',
 				delay: 5
-			},
-			{
-				text: 'Anone who can obtain a lotus from the bottom of the well...',
-				delay: 5
-			},
-			{text: 'their wish will be granted.', delay: 5}
+			}
 		]);
 	}
 }
