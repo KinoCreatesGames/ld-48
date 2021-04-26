@@ -283,7 +283,8 @@ class LevelState extends BaseTileState {
 				var save = new FlxSave();
 				save.bind('position');
 				var pos = collectible.getPosition();
-				save.data.position = new FlxPoint(pos.x, collectible.initialY);
+				save.data.position = new FlxPoint(pos.x,
+					collectible.initialY - 6);
 				save.close();
 				if (flySound.playing == false) {
 					flySound.play();
