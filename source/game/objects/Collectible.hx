@@ -8,8 +8,9 @@ class Collectible extends FlxSprite {
 
 	public function new(x:Float, y:Float) {
 		super(x, y);
-		this.initialY = y;
+		this.initialY = y + 6;
 		setSprite();
+		this.setSize(16, 16);
 	}
 
 	public function setSprite() {}
