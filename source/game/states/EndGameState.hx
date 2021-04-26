@@ -8,7 +8,7 @@ class EndGameState extends CutsceneState {
 				text: 'And so the young individual after facing many hardships, was finally able to get their wish granted.',
 				delay: stdDelay
 			},
-			{text: '', delay: 5}
+			{text: 'Thank you for playing!', delay: 5}
 		]);
 	}
 }
