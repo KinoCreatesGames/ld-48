@@ -8,7 +8,7 @@ class IntroCutScene extends CutsceneState {
 				delay: 5
 			},
 			{
-				text: 'Anone who can obtain a lotus from the lowest level of the well...',
+				text: 'Anone who can obtain a lotus from the bottom of the well...',
 				delay: 5
 			},
 			{text: 'their wish will be granted.', delay: 5}
