@@ -339,6 +339,7 @@ class LevelState extends BaseTileState {
 	public function processCompleteLevel(elapsed:Float) {
 		if (completeLevel) {
 			// openSubState();
+			FlxG.switchState(new EndGameState());
 			// Trigger Cutscene here
 		}
 	}
