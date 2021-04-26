@@ -24,7 +24,10 @@ class Enemy extends game.char.Actor {
 		this.path.start(null, (Globals.MOVEMENT_SPEED * 8),
 			FlxPath.LOOP_FORWARD, false);
 		this.path.active = false;
+		setSprite();
 	}
+
+	public function setSprite() {}
 
 	public function idle(elapsed:Float) {
 		// Set up seeing player logic

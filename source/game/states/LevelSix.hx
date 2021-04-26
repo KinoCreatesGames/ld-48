@@ -1,12 +1,12 @@
 package game.states;
 
-class LevelThree extends LevelState {
+class LevelSix extends LevelState {
 	override public function create() {
 		super.create();
-		createLevel("0003_Level_2");
+		createLevel('0007_Level_6');
 	}
 
 	override public function gotoNextLevel() {
-		FlxG.switchState(new LevelFour());
+		// FlxG.swit
 	}
 }
