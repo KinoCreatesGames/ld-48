@@ -175,7 +175,8 @@ Left/Right: A/Left, S/Right', textSize);
 		var textWidth = 200;
 		var textSize = 12;
 		var creditsText = new FlxText(FlxG.width - textWidth,
-			FlxG.height - 100, textWidth, 'Created by Kino & Ayzu', textSize);
+			FlxG.height - 100, textWidth,
+			'Created by Kino & Ayzu\nMusic By Zefz', textSize);
 		add(creditsText);
 	}
 
