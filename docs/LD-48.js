@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "25";
+	app.meta.h["build"] = "26";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "LD-48";
 	app.meta.h["name"] = "LD-48";
@@ -49378,7 +49378,7 @@ game_states_LevelFive.__super__ = game_states_LevelState;
 game_states_LevelFive.prototype = $extend(game_states_LevelState.prototype,{
 	create: function() {
 		game_states_LevelState.prototype.create.call(this);
-		this.createLevel("0006_Level_5");
+		this.createLevel("0007_Level_6");
 	}
 	,gotoPreviousLevel: function() {
 		var nextState = new game_states_LevelFour();
@@ -49403,7 +49403,7 @@ game_states_LevelFour.__super__ = game_states_LevelState;
 game_states_LevelFour.prototype = $extend(game_states_LevelState.prototype,{
 	create: function() {
 		game_states_LevelState.prototype.create.call(this);
-		this.createLevel("0005_Level_4");
+		this.createLevel("0006_Level_5");
 	}
 	,gotoNextLevel: function() {
 		var nextState = new game_states_LevelFive();
@@ -49445,7 +49445,7 @@ game_states_LevelSix.__super__ = game_states_LevelState;
 game_states_LevelSix.prototype = $extend(game_states_LevelState.prototype,{
 	create: function() {
 		game_states_LevelState.prototype.create.call(this);
-		this.createLevel("0007_Level_6");
+		this.createLevel("0008_Level_7");
 	}
 	,gotoNextLevel: function() {
 	}
@@ -49460,7 +49460,7 @@ game_states_LevelThree.__super__ = game_states_LevelState;
 game_states_LevelThree.prototype = $extend(game_states_LevelState.prototype,{
 	create: function() {
 		game_states_LevelState.prototype.create.call(this);
-		this.createLevel("0003_Level_2");
+		this.createLevel("0005_Level_4");
 	}
 	,gotoNextLevel: function() {
 		var nextState = new game_states_LevelFour();
@@ -68708,7 +68708,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 999175;
+	this.version = 595978;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
