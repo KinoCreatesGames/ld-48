@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "36";
+	app.meta.h["build"] = "37";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "LD-48";
 	app.meta.h["name"] = "Nalin Bermet";
@@ -49293,7 +49293,7 @@ game_states_DebugState.prototype = $extend(game_states_LevelState.prototype,{
 });
 var game_states_EndGameState = function() {
 	var stdDelay = 5;
-	game_states_CutsceneState.call(this,new game_states_TitleState(),[{ text : "And so the young individual after facing many hardships, was finally able to get their wish granted.", delay : stdDelay},{ text : "", delay : 5}]);
+	game_states_CutsceneState.call(this,new game_states_TitleState(),[{ text : "And so the young individual after facing many hardships, was finally able to get their wish granted.", delay : stdDelay},{ text : "Thank you for playing!", delay : 5}]);
 };
 $hxClasses["game.states.EndGameState"] = game_states_EndGameState;
 game_states_EndGameState.__name__ = "game.states.EndGameState";
@@ -68736,7 +68736,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 463366;
+	this.version = 302875;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
