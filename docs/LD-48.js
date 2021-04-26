@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "18";
+	app.meta.h["build"] = "19";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "LD-48";
 	app.meta.h["name"] = "LD-48";
@@ -3459,7 +3459,7 @@ ManifestResources.init = function(config) {
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf);
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf);
 	var bundle;
-	var data = "{\"name\":null,\"assets\":\"aoy4:pathy32:assets%2Fimages%2FBackground.pngy4:sizei15533y4:typey5:IMAGEy2:idR1y7:preloadtgoR0y33:assets%2Fimages%2Ffinal-tiles.pngR2i18234R3R4R5R7R6tgoR0y33:assets%2Fimages%2FGridperfect.pngR2i18572R3R4R5R8R6tgoR0y28:assets%2Fimages%2FFloor2.pngR2i11511R3R4R5R9R6tgoR0y33:assets%2Fimages%2Ffinal-tiles.psdR2i216030R3y6:BINARYR5R10R6tgoR0y33:assets%2Fimages%2FLotus_Petal.pngR2i323R3R4R5R12R6tgoR0y27:assets%2Fimages%2FEnemy.pngR2i1822R3R4R5R13R6tgoR0y29:assets%2Fimages%2Fv2Clean.pngR2i12279R3R4R5R14R6tgoR0y28:assets%2Fimages%2FClean2.pngR2i11511R3R4R5R15R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3y4:TEXTR5R16R6tgoR0y34:assets%2Fimages%2Fdialog-arrow.pngR2i261R3R4R5R18R6tgoR0y28:assets%2Fimages%2Fbutton.pngR2i1126R3R4R5R19R6tgoR0y29:assets%2Fimages%2Fv3Clean.pngR2i12419R3R4R5R20R6tgoR0y27:assets%2Fimages%2FGrass.pngR2i2918R3R4R5R21R6tgoR0y46:assets%2Fimages%2FPlayer_Sprite_Cleaned_v2.pngR2i1562R3R4R5R22R6tgoR0y27:assets%2Fimages%2FLotus.pngR2i531R3R4R5R23R6tgoR0y28:assets%2Fimages%2FPlayer.pngR2i2135R3R4R5R24R6tgoR0y31:assets%2Fimages%2Fexit-door.pngR2i382R3R4R5R25R6tgoR0y37:assets%2Fimages%2Faffection-heart.pngR2i685R3R4R5R26R6tgoR0y32:assets%2Fimages%2FTilesClean.pngR2i15113R3R4R5R27R6tgoR0y30:assets%2Fimages%2FMRMOTEXT.pngR2i6622R3R4R5R28R6tgoR0y28:assets%2Fimages%2FClean3.pngR2i11511R3R4R5R29R6tgoR0y29:assets%2Fimages%2FTileset.pngR2i10044R3R4R5R30R6tgoR0y32:assets%2Fimages%2FGrassClean.pngR2i3147R3R4R5R31R6tgoR0y29:assets%2Fimages%2Fcog-two.pngR2i512R3R4R5R32R6tgoR0y26:assets%2Fmaps%2Fld-48.ldtkR2i326174R3R17R5R33R6tgoR0y42:assets%2Fmaps%2FTilemap-data-goes-here.txtR2zR3R17R5R34R6tgoR0y81:assets%2Fmaps%2Fld-48%2Fbackups%2Fld-48___2021-04-24__17-07-08__crash.backup.ldtkR2i9080R3R17R5R35R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0004_Level_1.tmxR2i6010R3R17R5R36R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0003_Level_2.tmxR2i6784R3R17R5R37R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0006_Level_5.tmxR2i5327R3R17R5R38R6tgoR0y51:assets%2Fmaps%2Fld-48%2Ftiled%2FRegions.intgrid.pngR2i237R3R4R5R39R6tgoR0y53:assets%2Fmaps%2Fld-48%2Ftiled%2FFloorAuto.intgrid.pngR2i328R3R4R5R40R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0002_Failure.tmxR2i6955R3R17R5R41R6tgoR0y43:assets%2Fmaps%2Fld-48%2Ftiled%2FLevel_0.tmxR2i5923R3R17R5R42R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0005_Level_4.tmxR2i5327R3R17R5R43R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0001_Level_0.tmxR2i7026R3R17R5R44R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0008_Level_7.tmxR2i8028R3R17R5R45R6tgoR0y43:assets%2Fmaps%2Fld-48%2Ftiled%2Fld-48.worldR2i487R3R17R5R46R6tgoR0y49:assets%2Fmaps%2Fld-48%2Ftiled%2FGrass.intgrid.pngR2i132R3R4R5R47R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0007_Level_6.tmxR2i7696R3R17R5R48R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R17R5R49R6tgoR0y28:assets%2Fdata%2Fdatabase.dpoR2i15R3R17R5R50R6tgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R17R5R51R6tgoR2i39740R3y5:SOUNDR5y32:assets%2Fsounds%2Flow-health.wavy9:pathGroupaR53hR6tgoR2i39788R3R52R5y35:assets%2Fsounds%2Fpause-out-new.wavR54aR55hR6tgoR2i8410R3R52R5y28:assets%2Fsounds%2Fimpact.wavR54aR56hR6tgoR2i22964R3R52R5y30:assets%2Fsounds%2Fpause-in.wavR54aR57hR6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R17R5R58R6tgoR2i40628R3R52R5y34:assets%2Fsounds%2Fpause-in-new.wavR54aR59hR6tgoR2i3672R3R52R5y32:assets%2Fsounds%2Fmouse-over.wavR54aR60hR6tgoR2i6900R3R52R5y31:assets%2Fsounds%2Fmenu-open.wavR54aR61hR6tgoR2i4584R3R52R5y33:assets%2Fsounds%2Fbullet-fire.wavR54aR62hR6tgoR2i19472R3R52R5y31:assets%2Fsounds%2Fpause-out.wavR54aR63hR6tgoR2i8378R3R52R5y34:assets%2Fsounds%2Fbutton-click.wavR54aR64hR6tgoR2i4578R3R52R5y31:assets%2Fsounds%2Fmenu-exit.wavR54aR65hR6tgoR2i12492R3R52R5y34:assets%2Fsounds%2Fenemy-impact.wavR54aR66hR6tgoR2i2114R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3R54aR68y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R67R5y28:flixel%2Fsounds%2Fflixel.mp3R54aR70y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i5794R3R52R5R69R54aR68R69hgoR2i33629R3R52R5R71R54aR70R71hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R72R73y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3R4R5R78R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R4R5R79R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	var data = "{\"name\":null,\"assets\":\"aoy4:pathy32:assets%2Fimages%2FBackground.pngy4:sizei15533y4:typey5:IMAGEy2:idR1y7:preloadtgoR0y33:assets%2Fimages%2Ffinal-tiles.pngR2i18234R3R4R5R7R6tgoR0y33:assets%2Fimages%2FGridperfect.pngR2i18572R3R4R5R8R6tgoR0y28:assets%2Fimages%2FFloor2.pngR2i11511R3R4R5R9R6tgoR0y33:assets%2Fimages%2Ffinal-tiles.psdR2i216030R3y6:BINARYR5R10R6tgoR0y33:assets%2Fimages%2FLotus_Petal.pngR2i323R3R4R5R12R6tgoR0y27:assets%2Fimages%2FEnemy.pngR2i1822R3R4R5R13R6tgoR0y29:assets%2Fimages%2Fv2Clean.pngR2i12279R3R4R5R14R6tgoR0y28:assets%2Fimages%2FClean2.pngR2i11511R3R4R5R15R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3y4:TEXTR5R16R6tgoR0y34:assets%2Fimages%2Fdialog-arrow.pngR2i261R3R4R5R18R6tgoR0y28:assets%2Fimages%2Fbutton.pngR2i1126R3R4R5R19R6tgoR0y29:assets%2Fimages%2Fv3Clean.pngR2i12419R3R4R5R20R6tgoR0y27:assets%2Fimages%2FGrass.pngR2i2918R3R4R5R21R6tgoR0y46:assets%2Fimages%2FPlayer_Sprite_Cleaned_v2.pngR2i1562R3R4R5R22R6tgoR0y27:assets%2Fimages%2FLotus.pngR2i531R3R4R5R23R6tgoR0y28:assets%2Fimages%2FPlayer.pngR2i2135R3R4R5R24R6tgoR0y31:assets%2Fimages%2Fexit-door.pngR2i382R3R4R5R25R6tgoR0y37:assets%2Fimages%2Faffection-heart.pngR2i685R3R4R5R26R6tgoR0y32:assets%2Fimages%2FTilesClean.pngR2i15113R3R4R5R27R6tgoR0y30:assets%2Fimages%2FMRMOTEXT.pngR2i6622R3R4R5R28R6tgoR0y28:assets%2Fimages%2FClean3.pngR2i11511R3R4R5R29R6tgoR0y29:assets%2Fimages%2FTileset.pngR2i10044R3R4R5R30R6tgoR0y32:assets%2Fimages%2FGrassClean.pngR2i3147R3R4R5R31R6tgoR0y29:assets%2Fimages%2Fcog-two.pngR2i512R3R4R5R32R6tgoR0y26:assets%2Fmaps%2Fld-48.ldtkR2i320372R3R17R5R33R6tgoR0y42:assets%2Fmaps%2FTilemap-data-goes-here.txtR2zR3R17R5R34R6tgoR0y81:assets%2Fmaps%2Fld-48%2Fbackups%2Fld-48___2021-04-24__17-07-08__crash.backup.ldtkR2i9080R3R17R5R35R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0004_Level_1.tmxR2i6010R3R17R5R36R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0003_Level_2.tmxR2i6784R3R17R5R37R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0006_Level_5.tmxR2i5327R3R17R5R38R6tgoR0y51:assets%2Fmaps%2Fld-48%2Ftiled%2FRegions.intgrid.pngR2i262R3R4R5R39R6tgoR0y53:assets%2Fmaps%2Fld-48%2Ftiled%2FFloorAuto.intgrid.pngR2i328R3R4R5R40R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0002_Failure.tmxR2i6955R3R17R5R41R6tgoR0y43:assets%2Fmaps%2Fld-48%2Ftiled%2FLevel_0.tmxR2i5923R3R17R5R42R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0005_Level_4.tmxR2i5327R3R17R5R43R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0001_Level_0.tmxR2i7026R3R17R5R44R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0008_Level_7.tmxR2i8028R3R17R5R45R6tgoR0y43:assets%2Fmaps%2Fld-48%2Ftiled%2Fld-48.worldR2i487R3R17R5R46R6tgoR0y49:assets%2Fmaps%2Fld-48%2Ftiled%2FGrass.intgrid.pngR2i132R3R4R5R47R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0007_Level_6.tmxR2i5311R3R17R5R48R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R17R5R49R6tgoR0y28:assets%2Fdata%2Fdatabase.dpoR2i15R3R17R5R50R6tgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R17R5R51R6tgoR2i39740R3y5:SOUNDR5y32:assets%2Fsounds%2Flow-health.wavy9:pathGroupaR53hR6tgoR2i39788R3R52R5y35:assets%2Fsounds%2Fpause-out-new.wavR54aR55hR6tgoR2i8410R3R52R5y28:assets%2Fsounds%2Fimpact.wavR54aR56hR6tgoR2i22964R3R52R5y30:assets%2Fsounds%2Fpause-in.wavR54aR57hR6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R17R5R58R6tgoR2i40628R3R52R5y34:assets%2Fsounds%2Fpause-in-new.wavR54aR59hR6tgoR2i3672R3R52R5y32:assets%2Fsounds%2Fmouse-over.wavR54aR60hR6tgoR2i6900R3R52R5y31:assets%2Fsounds%2Fmenu-open.wavR54aR61hR6tgoR2i4584R3R52R5y33:assets%2Fsounds%2Fbullet-fire.wavR54aR62hR6tgoR2i19472R3R52R5y31:assets%2Fsounds%2Fpause-out.wavR54aR63hR6tgoR2i8378R3R52R5y34:assets%2Fsounds%2Fbutton-click.wavR54aR64hR6tgoR2i4578R3R52R5y31:assets%2Fsounds%2Fmenu-exit.wavR54aR65hR6tgoR2i12492R3R52R5y34:assets%2Fsounds%2Fenemy-impact.wavR54aR66hR6tgoR2i2114R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3R54aR68y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R67R5y28:flixel%2Fsounds%2Fflixel.mp3R54aR70y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i5794R3R52R5R69R54aR68R69hgoR2i33629R3R52R5R71R54aR70R71hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R72R73y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3R4R5R78R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R4R5R79R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	var manifest = lime_utils_AssetManifest.parse(data,ManifestResources.rootPath);
 	var library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -48192,6 +48192,16 @@ game_objects_Hook.__super__ = game_objects_Collectible;
 game_objects_Hook.prototype = $extend(game_objects_Collectible.prototype,{
 	__class__: game_objects_Hook
 });
+var game_objects_Lotus = function(x,y) {
+	game_objects_Collectible.call(this,x,y);
+	this.loadGraphic("assets/images/Lotus.png",false,32,32);
+};
+$hxClasses["game.objects.Lotus"] = game_objects_Lotus;
+game_objects_Lotus.__name__ = "game.objects.Lotus";
+game_objects_Lotus.__super__ = game_objects_Collectible;
+game_objects_Lotus.prototype = $extend(game_objects_Collectible.prototype,{
+	__class__: game_objects_Lotus
+});
 var game_objects_Shield = function(x,y) {
 	game_objects_Collectible.call(this,x,y);
 };
@@ -48402,7 +48412,7 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 		});
 	}
 	,updateTurn: function() {
-		haxe_Log.trace("Turn Update",{ fileName : "source/game/states/LevelState.hx", lineNumber : 147, className : "game.states.LevelState", methodName : "updateTurn"});
+		haxe_Log.trace("Turn Update",{ fileName : "source/game/states/LevelState.hx", lineNumber : 149, className : "game.states.LevelState", methodName : "updateTurn"});
 		Lambda.iter(this.enemyGrp.members,function(enemy) {
 			enemy.startPhase();
 		});
@@ -48443,6 +48453,10 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 				var wall = new flixel_FlxSprite(coords.x,coords.y);
 				wall.makeGraphic(32,32,0);
 				this.wallGrp.add(wall);
+				break;
+			case 6:
+				var lotus = new game_objects_Lotus(coords.x,coords.y);
+				this.collectibleGrp.add(lotus);
 				break;
 			}
 		}
@@ -48531,6 +48545,9 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 			break;
 		case game_objects_Hook:
 			player.hasHook = true;
+			break;
+		case game_objects_Lotus:
+			this.completeLevel = true;
 			break;
 		case game_objects_Shield:
 			player.hasShield = true;
@@ -67908,7 +67925,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 384956;
+	this.version = 883827;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
