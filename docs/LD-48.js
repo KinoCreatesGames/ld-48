@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "35";
+	app.meta.h["build"] = "36";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "LD-48";
 	app.meta.h["name"] = "Nalin Bermet";
@@ -48933,7 +48933,7 @@ game_states_CutsceneState.prototype = $extend(flixel_FlxState.prototype,{
 		this.textComplete = false;
 		var currentText = this.textList[this.textIndex % this.textList.length];
 		this.sceneText.resetText(currentText.text);
-		this.sceneText.start(0.1,false,false,[32],function() {
+		this.sceneText.start(0.055,false,false,[32],function() {
 			_gthis.textComplete = true;
 		});
 		this.textDelay = 0;
@@ -48981,6 +48981,9 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 		this.flySound = flixel_FlxG.sound.load("assets/sounds/wing-sound.wav");
 		this.holeFallSound = flixel_FlxG.sound.load("assets/sounds/hole-fall-sound.wav");
 		if(flixel_FlxG.sound.music != null && flixel_FlxG.sound.music._channel != null == false) {
+			flixel_FlxG.sound.playMusic("assets/music/DarkWinds.OGG",0.65,true);
+		}
+		if(flixel_FlxG.sound.music == null) {
 			flixel_FlxG.sound.playMusic("assets/music/DarkWinds.OGG",0.65,true);
 		}
 	}
@@ -49768,7 +49771,7 @@ game_states_TitleState.prototype = $extend(flixel_FlxState.prototype,{
 	,createVersion: function() {
 		var textWidth = 200;
 		var textSize = 12;
-		var versionText = new flixel_text_FlxText(flixel_FlxG.width - textWidth,flixel_FlxG.height - 100,textWidth,"Version: 0.0.1",textSize);
+		var versionText = new flixel_text_FlxText(flixel_FlxG.width - textWidth,flixel_FlxG.height - 100,textWidth,"Version: 1.0.0",textSize);
 		versionText.screenCenter(flixel_util_FlxAxes.X);
 		this.add(versionText);
 	}
@@ -68733,7 +68736,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 995052;
+	this.version = 463366;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -114564,7 +114567,7 @@ Globals.TEXT_BACK = "Back";
 Globals.TEXT_LEVEL_NEXT = "Next";
 Globals.TEXT_LEVEL_WIN = "Congratulations!!";
 Globals.TEXT_RETURN = "Return";
-Globals.TEXT_VERSION = "Version: 0.0.1";
+Globals.TEXT_VERSION = "Version: 1.0.0";
 Globals.TEXT_CREDITS = "Credits";
 Globals.TIME_BONUS = 100;
 Globals.CMD_TIME_SCALE = 0.015;
