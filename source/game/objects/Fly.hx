@@ -3,6 +3,6 @@ package game.objects;
 class Fly extends Collectible {
 	public function new(x:Float, y:Float) {
 		super(x, y);
-		makeGraphic(16, 16, KColor.WHITE);
+		loadGraphic(AssetPaths.wing__png, false, 32, 32, true);
 	}
 }

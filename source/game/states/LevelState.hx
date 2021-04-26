@@ -56,6 +56,8 @@ class LevelState extends BaseTileState {
 
 	// Sounds
 	public var pauseInSound:FlxSound;
+	public var impactSound:FlxSound;
+	public var wallImpactSound:FlxSound;
 
 	override public function createGroups() {
 		super.createGroups();
@@ -80,6 +82,8 @@ class LevelState extends BaseTileState {
 
 	public function createSounds() {
 		pauseInSound = FlxG.sound.load(AssetPaths.pause_in_new__wav);
+		impactSound = FlxG.sound.load(AssetPaths.enemy_impact2__wav);
+		wallImpactSound = FlxG.sound.load(AssetPaths.wall_impact__wav);
 	}
 
 	public function createEnemyGroups() {
@@ -238,17 +242,20 @@ class LevelState extends BaseTileState {
 		FlxG.collide(player, enemyGrp, (plyr:Player, enemy:Enemy) -> {
 			plyr.moveToNextTile = false;
 			enemy.moveToNextTile = false;
+			impactSound.play();
 			plyr.resetPosition();
 			enemy.resetPosition();
 			plyr.takeDamage(1);
 		});
 		if (lvlGrp.visible) {
 			FlxG.collide(player, lvlGrp, (plyr:Player, lvl) -> {
+				wallImpactSound.play();
 				plyr.moveToNextTile = false;
 				plyr.resetPosition();
 			});
 		}
 		FlxG.collide(player, wallGrp, (plyr:Player, lvl) -> {
+			wallImpactSound.play();
 			plyr.moveToNextTile = false;
 			plyr.resetPosition();
 		});
@@ -319,11 +326,26 @@ class LevelState extends BaseTileState {
 	override public function processLevel(elapsed:Float) {
 		super.processLevel(elapsed);
 		processPause(elapsed);
+		processCompleteLevel(elapsed);
+		processGameOver(elapsed);
 	}
 
 	public function processPause(elapsed:Float) {
 		if (FlxG.keys.anyJustPressed([ESCAPE])) {
 			openSubState(new PauseSubState());
+		}
+	}
+
+	public function processCompleteLevel(elapsed:Float) {
+		if (completeLevel) {
+			// openSubState();
+			// Trigger Cutscene here
+		}
+	}
+
+	public function processGameOver(elapsed:Float) {
+		if (player.health <= 0) {
+			openSubState(new GameOverSubState());
 		}
 	}
 
