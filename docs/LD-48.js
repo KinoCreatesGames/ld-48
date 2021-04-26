@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "19";
+	app.meta.h["build"] = "20";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "LD-48";
 	app.meta.h["name"] = "LD-48";
@@ -3459,7 +3459,7 @@ ManifestResources.init = function(config) {
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf);
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf);
 	var bundle;
-	var data = "{\"name\":null,\"assets\":\"aoy4:pathy32:assets%2Fimages%2FBackground.pngy4:sizei15533y4:typey5:IMAGEy2:idR1y7:preloadtgoR0y33:assets%2Fimages%2Ffinal-tiles.pngR2i18234R3R4R5R7R6tgoR0y33:assets%2Fimages%2FGridperfect.pngR2i18572R3R4R5R8R6tgoR0y28:assets%2Fimages%2FFloor2.pngR2i11511R3R4R5R9R6tgoR0y33:assets%2Fimages%2Ffinal-tiles.psdR2i216030R3y6:BINARYR5R10R6tgoR0y33:assets%2Fimages%2FLotus_Petal.pngR2i323R3R4R5R12R6tgoR0y27:assets%2Fimages%2FEnemy.pngR2i1822R3R4R5R13R6tgoR0y29:assets%2Fimages%2Fv2Clean.pngR2i12279R3R4R5R14R6tgoR0y28:assets%2Fimages%2FClean2.pngR2i11511R3R4R5R15R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3y4:TEXTR5R16R6tgoR0y34:assets%2Fimages%2Fdialog-arrow.pngR2i261R3R4R5R18R6tgoR0y28:assets%2Fimages%2Fbutton.pngR2i1126R3R4R5R19R6tgoR0y29:assets%2Fimages%2Fv3Clean.pngR2i12419R3R4R5R20R6tgoR0y27:assets%2Fimages%2FGrass.pngR2i2918R3R4R5R21R6tgoR0y46:assets%2Fimages%2FPlayer_Sprite_Cleaned_v2.pngR2i1562R3R4R5R22R6tgoR0y27:assets%2Fimages%2FLotus.pngR2i531R3R4R5R23R6tgoR0y28:assets%2Fimages%2FPlayer.pngR2i2135R3R4R5R24R6tgoR0y31:assets%2Fimages%2Fexit-door.pngR2i382R3R4R5R25R6tgoR0y37:assets%2Fimages%2Faffection-heart.pngR2i685R3R4R5R26R6tgoR0y32:assets%2Fimages%2FTilesClean.pngR2i15113R3R4R5R27R6tgoR0y30:assets%2Fimages%2FMRMOTEXT.pngR2i6622R3R4R5R28R6tgoR0y28:assets%2Fimages%2FClean3.pngR2i11511R3R4R5R29R6tgoR0y29:assets%2Fimages%2FTileset.pngR2i10044R3R4R5R30R6tgoR0y32:assets%2Fimages%2FGrassClean.pngR2i3147R3R4R5R31R6tgoR0y29:assets%2Fimages%2Fcog-two.pngR2i512R3R4R5R32R6tgoR0y26:assets%2Fmaps%2Fld-48.ldtkR2i320372R3R17R5R33R6tgoR0y42:assets%2Fmaps%2FTilemap-data-goes-here.txtR2zR3R17R5R34R6tgoR0y81:assets%2Fmaps%2Fld-48%2Fbackups%2Fld-48___2021-04-24__17-07-08__crash.backup.ldtkR2i9080R3R17R5R35R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0004_Level_1.tmxR2i6010R3R17R5R36R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0003_Level_2.tmxR2i6784R3R17R5R37R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0006_Level_5.tmxR2i5327R3R17R5R38R6tgoR0y51:assets%2Fmaps%2Fld-48%2Ftiled%2FRegions.intgrid.pngR2i262R3R4R5R39R6tgoR0y53:assets%2Fmaps%2Fld-48%2Ftiled%2FFloorAuto.intgrid.pngR2i328R3R4R5R40R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0002_Failure.tmxR2i6955R3R17R5R41R6tgoR0y43:assets%2Fmaps%2Fld-48%2Ftiled%2FLevel_0.tmxR2i5923R3R17R5R42R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0005_Level_4.tmxR2i5327R3R17R5R43R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0001_Level_0.tmxR2i7026R3R17R5R44R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0008_Level_7.tmxR2i8028R3R17R5R45R6tgoR0y43:assets%2Fmaps%2Fld-48%2Ftiled%2Fld-48.worldR2i487R3R17R5R46R6tgoR0y49:assets%2Fmaps%2Fld-48%2Ftiled%2FGrass.intgrid.pngR2i132R3R4R5R47R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0007_Level_6.tmxR2i5311R3R17R5R48R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R17R5R49R6tgoR0y28:assets%2Fdata%2Fdatabase.dpoR2i15R3R17R5R50R6tgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R17R5R51R6tgoR2i39740R3y5:SOUNDR5y32:assets%2Fsounds%2Flow-health.wavy9:pathGroupaR53hR6tgoR2i39788R3R52R5y35:assets%2Fsounds%2Fpause-out-new.wavR54aR55hR6tgoR2i8410R3R52R5y28:assets%2Fsounds%2Fimpact.wavR54aR56hR6tgoR2i22964R3R52R5y30:assets%2Fsounds%2Fpause-in.wavR54aR57hR6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R17R5R58R6tgoR2i40628R3R52R5y34:assets%2Fsounds%2Fpause-in-new.wavR54aR59hR6tgoR2i3672R3R52R5y32:assets%2Fsounds%2Fmouse-over.wavR54aR60hR6tgoR2i6900R3R52R5y31:assets%2Fsounds%2Fmenu-open.wavR54aR61hR6tgoR2i4584R3R52R5y33:assets%2Fsounds%2Fbullet-fire.wavR54aR62hR6tgoR2i19472R3R52R5y31:assets%2Fsounds%2Fpause-out.wavR54aR63hR6tgoR2i8378R3R52R5y34:assets%2Fsounds%2Fbutton-click.wavR54aR64hR6tgoR2i4578R3R52R5y31:assets%2Fsounds%2Fmenu-exit.wavR54aR65hR6tgoR2i12492R3R52R5y34:assets%2Fsounds%2Fenemy-impact.wavR54aR66hR6tgoR2i2114R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3R54aR68y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R67R5y28:flixel%2Fsounds%2Fflixel.mp3R54aR70y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i5794R3R52R5R69R54aR68R69hgoR2i33629R3R52R5R71R54aR70R71hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R72R73y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3R4R5R78R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R4R5R79R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	var data = "{\"name\":null,\"assets\":\"aoy4:pathy32:assets%2Fimages%2FBackground.pngy4:sizei15533y4:typey5:IMAGEy2:idR1y7:preloadtgoR0y33:assets%2Fimages%2Ffinal-tiles.pngR2i18234R3R4R5R7R6tgoR0y33:assets%2Fimages%2FGridperfect.pngR2i18572R3R4R5R8R6tgoR0y28:assets%2Fimages%2FFloor2.pngR2i11511R3R4R5R9R6tgoR0y33:assets%2Fimages%2Ffinal-tiles.psdR2i216030R3y6:BINARYR5R10R6tgoR0y33:assets%2Fimages%2FLotus_Petal.pngR2i323R3R4R5R12R6tgoR0y27:assets%2Fimages%2FEnemy.pngR2i1822R3R4R5R13R6tgoR0y29:assets%2Fimages%2Fv2Clean.pngR2i12279R3R4R5R14R6tgoR0y28:assets%2Fimages%2FClean2.pngR2i11511R3R4R5R15R6tgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3y4:TEXTR5R16R6tgoR0y34:assets%2Fimages%2Fdialog-arrow.pngR2i261R3R4R5R18R6tgoR0y28:assets%2Fimages%2Fbutton.pngR2i1126R3R4R5R19R6tgoR0y29:assets%2Fimages%2Fv3Clean.pngR2i12419R3R4R5R20R6tgoR0y27:assets%2Fimages%2FGrass.pngR2i2918R3R4R5R21R6tgoR0y46:assets%2Fimages%2FPlayer_Sprite_Cleaned_v2.pngR2i1562R3R4R5R22R6tgoR0y27:assets%2Fimages%2FLotus.pngR2i531R3R4R5R23R6tgoR0y28:assets%2Fimages%2FPlayer.pngR2i2135R3R4R5R24R6tgoR0y31:assets%2Fimages%2Fexit-door.pngR2i382R3R4R5R25R6tgoR0y37:assets%2Fimages%2Faffection-heart.pngR2i685R3R4R5R26R6tgoR0y32:assets%2Fimages%2FTilesClean.pngR2i15113R3R4R5R27R6tgoR0y30:assets%2Fimages%2FMRMOTEXT.pngR2i6622R3R4R5R28R6tgoR0y28:assets%2Fimages%2FClean3.pngR2i11511R3R4R5R29R6tgoR0y29:assets%2Fimages%2FTileset.pngR2i10044R3R4R5R30R6tgoR0y32:assets%2Fimages%2FGrassClean.pngR2i3147R3R4R5R31R6tgoR0y29:assets%2Fimages%2Fcog-two.pngR2i512R3R4R5R32R6tgoR0y26:assets%2Fimages%2Fwing.pngR2i383R3R4R5R33R6tgoR0y26:assets%2Fmaps%2Fld-48.ldtkR2i324900R3R17R5R34R6tgoR0y42:assets%2Fmaps%2FTilemap-data-goes-here.txtR2zR3R17R5R35R6tgoR0y81:assets%2Fmaps%2Fld-48%2Fbackups%2Fld-48___2021-04-24__17-07-08__crash.backup.ldtkR2i9080R3R17R5R36R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0004_Level_1.tmxR2i6010R3R17R5R37R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0003_Level_2.tmxR2i7265R3R17R5R38R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0006_Level_5.tmxR2i5327R3R17R5R39R6tgoR0y51:assets%2Fmaps%2Fld-48%2Ftiled%2FRegions.intgrid.pngR2i262R3R4R5R40R6tgoR0y53:assets%2Fmaps%2Fld-48%2Ftiled%2FFloorAuto.intgrid.pngR2i328R3R4R5R41R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0002_Failure.tmxR2i6955R3R17R5R42R6tgoR0y43:assets%2Fmaps%2Fld-48%2Ftiled%2FLevel_0.tmxR2i5923R3R17R5R43R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0005_Level_4.tmxR2i6851R3R17R5R44R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0001_Level_0.tmxR2i7026R3R17R5R45R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0008_Level_7.tmxR2i8028R3R17R5R46R6tgoR0y43:assets%2Fmaps%2Fld-48%2Ftiled%2Fld-48.worldR2i487R3R17R5R47R6tgoR0y49:assets%2Fmaps%2Fld-48%2Ftiled%2FGrass.intgrid.pngR2i132R3R4R5R48R6tgoR0y48:assets%2Fmaps%2Fld-48%2Ftiled%2F0007_Level_6.tmxR2i5311R3R17R5R49R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R17R5R50R6tgoR0y28:assets%2Fdata%2Fdatabase.dpoR2i15R3R17R5R51R6tgoR0y34:assets%2Fdata%2Fdata-goes-here.txtR2zR3R17R5R52R6tgoR2i39740R3y5:SOUNDR5y32:assets%2Fsounds%2Flow-health.wavy9:pathGroupaR54hR6tgoR2i39788R3R53R5y35:assets%2Fsounds%2Fpause-out-new.wavR55aR56hR6tgoR2i8410R3R53R5y28:assets%2Fsounds%2Fimpact.wavR55aR57hR6tgoR2i22964R3R53R5y30:assets%2Fsounds%2Fpause-in.wavR55aR58hR6tgoR2i12492R3R53R5y33:assets%2Fsounds%2Fwall-impact.wavR55aR59hR6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R17R5R60R6tgoR2i40628R3R53R5y34:assets%2Fsounds%2Fpause-in-new.wavR55aR61hR6tgoR2i3672R3R53R5y32:assets%2Fsounds%2Fmouse-over.wavR55aR62hR6tgoR2i8410R3R53R5y35:assets%2Fsounds%2Fenemy-impact2.wavR55aR63hR6tgoR2i6900R3R53R5y31:assets%2Fsounds%2Fmenu-open.wavR55aR64hR6tgoR2i4584R3R53R5y33:assets%2Fsounds%2Fbullet-fire.wavR55aR65hR6tgoR2i19472R3R53R5y31:assets%2Fsounds%2Fpause-out.wavR55aR66hR6tgoR2i8378R3R53R5y34:assets%2Fsounds%2Fbutton-click.wavR55aR67hR6tgoR2i4578R3R53R5y31:assets%2Fsounds%2Fmenu-exit.wavR55aR68hR6tgoR2i12492R3R53R5y34:assets%2Fsounds%2Fenemy-impact.wavR55aR69hR6tgoR2i2114R3y5:MUSICR5y26:flixel%2Fsounds%2Fbeep.mp3R55aR71y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R70R5y28:flixel%2Fsounds%2Fflixel.mp3R55aR73y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i5794R3R53R5R72R55aR71R72hgoR2i33629R3R53R5R74R55aR73R74hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R75R76y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3R4R5R81R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R4R5R82R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	var manifest = lime_utils_AssetManifest.parse(data,ManifestResources.rootPath);
 	var library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -48165,7 +48165,7 @@ game_objects_Collectible.prototype = $extend(flixel_FlxSprite.prototype,{
 });
 var game_objects_Fly = function(x,y) {
 	game_objects_Collectible.call(this,x,y);
-	this.makeGraphic(16,16,-1);
+	this.loadGraphic("assets/images/wing.png",false,32,32,true);
 };
 $hxClasses["game.objects.Fly"] = game_objects_Fly;
 game_objects_Fly.__name__ = "game.objects.Fly";
@@ -48353,6 +48353,8 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 	}
 	,createSounds: function() {
 		this.pauseInSound = flixel_FlxG.sound.load("assets/sounds/pause-in-new.wav");
+		this.impactSound = flixel_FlxG.sound.load("assets/sounds/enemy-impact2.wav");
+		this.wallImpactSound = flixel_FlxG.sound.load("assets/sounds/wall-impact.wav");
 	}
 	,createEnemyGroups: function() {
 		this.enemyBulletGrp = new flixel_group_FlxTypedGroup(50);
@@ -48412,7 +48414,7 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 		});
 	}
 	,updateTurn: function() {
-		haxe_Log.trace("Turn Update",{ fileName : "source/game/states/LevelState.hx", lineNumber : 149, className : "game.states.LevelState", methodName : "updateTurn"});
+		haxe_Log.trace("Turn Update",{ fileName : "source/game/states/LevelState.hx", lineNumber : 153, className : "game.states.LevelState", methodName : "updateTurn"});
 		Lambda.iter(this.enemyGrp.members,function(enemy) {
 			enemy.startPhase();
 		});
@@ -48506,6 +48508,7 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 		return points;
 	}
 	,processCollision: function() {
+		var _gthis = this;
 		game_states_BaseTileState.prototype.processCollision.call(this);
 		flixel_FlxG.overlap(this.player,this.collectibleGrp,$bind(this,this.playerTouchCollectible));
 		flixel_FlxG.overlap(this.player.swordHitBox,null,$bind(this,this.playerSwordTouchGrass));
@@ -48513,17 +48516,20 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 		flixel_FlxG.overlap(this.player,this.enemyGrp,function(plyr,enemy) {
 			plyr.moveToNextTile = false;
 			enemy.moveToNextTile = false;
+			_gthis.impactSound.play();
 			plyr.resetPosition();
 			enemy.resetPosition();
 			plyr.takeDamage(1);
 		},flixel_FlxObject.separate);
 		if(this.lvlGrp.visible) {
 			flixel_FlxG.overlap(this.player,this.lvlGrp,function(plyr,lvl) {
+				_gthis.wallImpactSound.play();
 				plyr.moveToNextTile = false;
 				plyr.resetPosition();
 			},flixel_FlxObject.separate);
 		}
 		flixel_FlxG.overlap(this.player,this.wallGrp,function(plyr,lvl) {
+			_gthis.wallImpactSound.play();
 			plyr.moveToNextTile = false;
 			plyr.resetPosition();
 		},flixel_FlxObject.separate);
@@ -48586,10 +48592,20 @@ game_states_LevelState.prototype = $extend(game_states_BaseTileState.prototype,{
 	,processLevel: function(elapsed) {
 		game_states_BaseTileState.prototype.processLevel.call(this,elapsed);
 		this.processPause(elapsed);
+		this.processCompleteLevel(elapsed);
+		this.processGameOver(elapsed);
 	}
 	,processPause: function(elapsed) {
 		if(flixel_FlxG.keys.checkKeyArrayState([27],2)) {
 			this.openSubState(new game_states_PauseSubState());
+		}
+	}
+	,processCompleteLevel: function(elapsed) {
+		var tmp = this.completeLevel;
+	}
+	,processGameOver: function(elapsed) {
+		if(this.player.health <= 0) {
+			this.openSubState(new game_states_GameOverSubState());
 		}
 	}
 	,levelTime: function() {
@@ -48632,6 +48648,104 @@ game_states_DebugState.prototype = $extend(game_states_LevelState.prototype,{
 	}
 	,__class__: game_states_DebugState
 });
+var game_states_GameOverSubState = function() {
+	flixel_FlxSubState.call(this);
+};
+$hxClasses["game.states.GameOverSubState"] = game_states_GameOverSubState;
+game_states_GameOverSubState.__name__ = "game.states.GameOverSubState";
+game_states_GameOverSubState.__super__ = flixel_FlxSubState;
+game_states_GameOverSubState.prototype = $extend(flixel_FlxSubState.prototype,{
+	create: function() {
+		flixel_FlxSubState.prototype.create.call(this);
+		this.timeCount = 0;
+		this.createBackground();
+		this.createCongrats();
+		this.createButtons();
+	}
+	,createBackground: function() {
+		var width = flixel_FlxG.width / 2;
+		var height = flixel_FlxG.height / 2;
+		this.background = new flixel_FlxSprite(width,height);
+		this.background.makeGraphic(width,height,0);
+		this.background.screenCenter();
+		flixel_util_FlxSpriteUtil.drawRect(this.background,0,0,width,height,-15986934,{ thickness : 4, color : -1});
+		this.add(this.background);
+	}
+	,createCongrats: function() {
+		this.gameOverText = new flixel_text_FlxText(this.background.x,this.background.y,-1,"Game Over",16);
+		this.gameOverText.screenCenter(flixel_util_FlxAxes.X);
+		var fh = this.gameOverText;
+		fh.set_y(fh.y + 30);
+		this.initialPosition = this.gameOverText.y;
+		this.add(this.gameOverText);
+	}
+	,createButtons: function() {
+		var padding = 24;
+		var x = this.background.x + padding;
+		var y = this.background.y + (this.background.get_height() - padding);
+		x = this.background.x + (this.background.get_width() - padding);
+		this.toTitleButton = new game_ui_TextButton(x,y,"To Title",12,$bind(this,this.clickToTitle));
+		var fh = this.toTitleButton;
+		fh.set_x(fh.x - this.toTitleButton.get_width());
+		this.toTitleButton.hoverColor = -37993;
+		this.toTitleButton.clickColor = -15790578;
+		this.add(this.toTitleButton);
+	}
+	,update: function(elapsed) {
+		flixel_FlxSubState.prototype.update.call(this,elapsed);
+		this.updateGameOver(elapsed);
+	}
+	,updateGameOver: function(elapsed) {
+		this.timeCount += elapsed;
+		this.gameOverText.set_y(this.initialPosition + 18 * Math.sin(this.timeCount));
+	}
+	,clickContinue: function() {
+		var _gthis = this;
+		flixel_FlxG.camera.fade(-16777216,1,false,function() {
+			_gthis.close();
+			var nextState = Type.createInstance(js_Boot.getClass(flixel_FlxG.game._state),[]);
+			if(flixel_FlxG.game._state.switchTo(nextState)) {
+				flixel_FlxG.game._requestedState = nextState;
+			}
+		});
+	}
+	,clickToTitle: function() {
+		var _gthis = this;
+		flixel_FlxG.camera.fade(-16777216,1,false,function() {
+			_gthis.close();
+			var nextState = new game_states_TitleState();
+			if(flixel_FlxG.game._state.switchTo(nextState)) {
+				flixel_FlxG.game._requestedState = nextState;
+			}
+		});
+	}
+	,__class__: game_states_GameOverSubState
+});
+var game_states_LevelFive = function(MaxSize) {
+	game_states_LevelState.call(this,MaxSize);
+};
+$hxClasses["game.states.LevelFive"] = game_states_LevelFive;
+game_states_LevelFive.__name__ = "game.states.LevelFive";
+game_states_LevelFive.__super__ = game_states_LevelState;
+game_states_LevelFive.prototype = $extend(game_states_LevelState.prototype,{
+	create: function() {
+		game_states_LevelState.prototype.create.call(this);
+		this.createLevel("0006_Level_5");
+	}
+	,gotoPreviousLevel: function() {
+		var nextState = new game_states_LevelFour();
+		if(flixel_FlxG.game._state.switchTo(nextState)) {
+			flixel_FlxG.game._requestedState = nextState;
+		}
+	}
+	,gotoNextLevel: function() {
+		var nextState = new game_states_LevelSix();
+		if(flixel_FlxG.game._state.switchTo(nextState)) {
+			flixel_FlxG.game._requestedState = nextState;
+		}
+	}
+	,__class__: game_states_LevelFive
+});
 var game_states_LevelFour = function(MaxSize) {
 	game_states_LevelState.call(this,MaxSize);
 };
@@ -48642,6 +48756,12 @@ game_states_LevelFour.prototype = $extend(game_states_LevelState.prototype,{
 	create: function() {
 		game_states_LevelState.prototype.create.call(this);
 		this.createLevel("0005_Level_4");
+	}
+	,gotoNextLevel: function() {
+		var nextState = new game_states_LevelFive();
+		if(flixel_FlxG.game._state.switchTo(nextState)) {
+			flixel_FlxG.game._requestedState = nextState;
+		}
 	}
 	,__class__: game_states_LevelFour
 });
@@ -48667,6 +48787,21 @@ game_states_LevelOne.prototype = $extend(game_states_LevelState.prototype,{
 		}
 	}
 	,__class__: game_states_LevelOne
+});
+var game_states_LevelSix = function(MaxSize) {
+	game_states_LevelState.call(this,MaxSize);
+};
+$hxClasses["game.states.LevelSix"] = game_states_LevelSix;
+game_states_LevelSix.__name__ = "game.states.LevelSix";
+game_states_LevelSix.__super__ = game_states_LevelState;
+game_states_LevelSix.prototype = $extend(game_states_LevelState.prototype,{
+	create: function() {
+		game_states_LevelState.prototype.create.call(this);
+		this.createLevel("0007_Level_6");
+	}
+	,gotoNextLevel: function() {
+	}
+	,__class__: game_states_LevelSix
 });
 var game_states_LevelThree = function(MaxSize) {
 	game_states_LevelState.call(this,MaxSize);
@@ -67925,7 +68060,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 883827;
+	this.version = 315429;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -113911,6 +114046,7 @@ AssetPaths.Clean3__png = "assets/images/Clean3.png";
 AssetPaths.Tileset__png = "assets/images/Tileset.png";
 AssetPaths.GrassClean__png = "assets/images/GrassClean.png";
 AssetPaths.cog_two__png = "assets/images/cog-two.png";
+AssetPaths.wing__png = "assets/images/wing.png";
 AssetPaths.ld_48__ldtk = "assets/maps/ld-48.ldtk";
 AssetPaths.Tilemap_data_goes_here__txt = "assets/maps/Tilemap-data-goes-here.txt";
 AssetPaths.ld_48___2021_04_24__17_07_08__crash__backup__ldtk = "assets/maps/ld-48/backups/ld-48___2021-04-24__17-07-08__crash.backup.ldtk";
@@ -113926,9 +114062,11 @@ AssetPaths.low_health__wav = "assets/sounds/low-health.wav";
 AssetPaths.pause_out_new__wav = "assets/sounds/pause-out-new.wav";
 AssetPaths.impact__wav = "assets/sounds/impact.wav";
 AssetPaths.pause_in__wav = "assets/sounds/pause-in.wav";
+AssetPaths.wall_impact__wav = "assets/sounds/wall-impact.wav";
 AssetPaths.sounds_go_here__txt = "assets/sounds/sounds-go-here.txt";
 AssetPaths.pause_in_new__wav = "assets/sounds/pause-in-new.wav";
 AssetPaths.mouse_over__wav = "assets/sounds/mouse-over.wav";
+AssetPaths.enemy_impact2__wav = "assets/sounds/enemy-impact2.wav";
 AssetPaths.menu_open__wav = "assets/sounds/menu-open.wav";
 AssetPaths.bullet_fire__wav = "assets/sounds/bullet-fire.wav";
 AssetPaths.pause_out__wav = "assets/sounds/pause-out.wav";
