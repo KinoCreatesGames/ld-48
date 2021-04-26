@@ -154,7 +154,7 @@ class LevelState extends BaseTileState {
 
 	public function updateTurn() {
 		// Update Turn For All Game Elements
-		trace('Turn Update');
+
 		enemyGrp.members.iter((enemy) -> {
 			enemy.startPhase();
 		});
@@ -285,7 +285,9 @@ class LevelState extends BaseTileState {
 				var pos = collectible.getPosition();
 				save.data.position = new FlxPoint(pos.x, collectible.initialY);
 				save.close();
-				flySound.play();
+				if (flySound.playing == false) {
+					flySound.play();
+				}
 				FlxG.camera.fade(KColor.BLACK, 1, false, () -> {
 					gotoPreviousLevel();
 					FlxG.camera.fade(KColor.BLACK, 1, true);
@@ -306,7 +308,9 @@ class LevelState extends BaseTileState {
 		save.bind('position');
 		save.data.position = hole.getPosition();
 		save.close();
-		holeFallSound.play();
+		if (holeFallSound.playing == false) {
+			holeFallSound.play();
+		}
 		FlxG.camera.fade(KColor.BLACK, 1, false, () -> {
 			gotoNextLevel();
 			FlxG.camera.fade(KColor.BLACK, 1, true);
