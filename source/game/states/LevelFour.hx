@@ -6,6 +6,10 @@ class LevelFour extends LevelState {
 		createLevel('0006_Level_5');
 	}
 
+	override public function gotoPreviousLevel() {
+		FlxG.switchState(new LevelThree());
+	}
+
 	override public function gotoNextLevel() {
 		FlxG.switchState(new LevelFive());
 	}
