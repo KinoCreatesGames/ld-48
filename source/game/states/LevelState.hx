@@ -58,6 +58,7 @@ class LevelState extends BaseTileState {
 	public var pauseInSound:FlxSound;
 	public var impactSound:FlxSound;
 	public var wallImpactSound:FlxSound;
+	public var flySound:FlxSound;
 
 	override public function createGroups() {
 		super.createGroups();
@@ -84,6 +85,7 @@ class LevelState extends BaseTileState {
 		pauseInSound = FlxG.sound.load(AssetPaths.pause_in_new__wav);
 		impactSound = FlxG.sound.load(AssetPaths.enemy_impact2__wav);
 		wallImpactSound = FlxG.sound.load(AssetPaths.wall_impact__wav);
+		flySound = FlxG.sound.load(AssetPaths.wing_sound__wav);
 	}
 
 	public function createEnemyGroups() {
@@ -279,6 +281,7 @@ class LevelState extends BaseTileState {
 				var pos = collectible.getPosition();
 				save.data.position = new FlxPoint(pos.x, collectible.initialY);
 				save.close();
+				flySound.play();
 				FlxG.camera.fade(KColor.BLACK, 1, false, () -> {
 					gotoPreviousLevel();
 					FlxG.camera.fade(KColor.BLACK, 1, true);
