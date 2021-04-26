@@ -60,6 +60,7 @@ class LevelState extends BaseTileState {
 	public var wallImpactSound:FlxSound;
 	public var flySound:FlxSound;
 	public var holeFallSound:FlxSound;
+	public var levelMusic:FlxSound;
 
 	override public function createGroups() {
 		super.createGroups();
@@ -88,6 +89,9 @@ class LevelState extends BaseTileState {
 		wallImpactSound = FlxG.sound.load(AssetPaths.wall_impact__wav);
 		flySound = FlxG.sound.load(AssetPaths.wing_sound__wav);
 		holeFallSound = FlxG.sound.load(AssetPaths.hole_fall_sound__wav);
+		if (FlxG.sound.music.playing == false) {
+			FlxG.sound.playMusic(AssetPaths.DarkWinds__OGG, 0.65, true);
+		}
 	}
 
 	public function createEnemyGroups() {
