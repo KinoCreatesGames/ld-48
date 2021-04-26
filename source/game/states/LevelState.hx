@@ -257,7 +257,9 @@ class LevelState extends BaseTileState {
 				plyr.moveToNextTile = false;
 				plyr.resetPosition();
 			});
+			FlxG.collide(enemyGrp, lvlGrp);
 		}
+		FlxG.collide(enemyGrp, wallGrp);
 		FlxG.collide(player, wallGrp, (plyr:Player, lvl) -> {
 			wallImpactSound.play();
 			plyr.moveToNextTile = false;
