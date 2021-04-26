@@ -888,7 +888,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "27";
+	app.meta.h["build"] = "29";
 	app.meta.h["company"] = "KinoCreatesGames";
 	app.meta.h["file"] = "LD-48";
 	app.meta.h["name"] = "LD-48";
@@ -48658,8 +48658,9 @@ game_objects_Chest.prototype = $extend(flixel_FlxSprite.prototype,{
 });
 var game_objects_Collectible = function(x,y) {
 	flixel_FlxSprite.call(this,x,y);
-	this.initialY = y;
+	this.initialY = y + 6;
 	this.setSprite();
+	this.setSize(16,16);
 };
 $hxClasses["game.objects.Collectible"] = game_objects_Collectible;
 game_objects_Collectible.__name__ = "game.objects.Collectible";
@@ -48679,13 +48680,15 @@ game_objects_Collectible.prototype = $extend(flixel_FlxSprite.prototype,{
 });
 var game_objects_Fly = function(x,y) {
 	game_objects_Collectible.call(this,x,y);
-	this.loadGraphic("assets/images/wing.png",false,32,32,true);
 };
 $hxClasses["game.objects.Fly"] = game_objects_Fly;
 game_objects_Fly.__name__ = "game.objects.Fly";
 game_objects_Fly.__super__ = game_objects_Collectible;
 game_objects_Fly.prototype = $extend(game_objects_Collectible.prototype,{
-	__class__: game_objects_Fly
+	setSprite: function() {
+		this.loadGraphic("assets/images/wing.png",false,32,32,true);
+	}
+	,__class__: game_objects_Fly
 });
 var game_objects_Hole = function(x,y) {
 	flixel_FlxSprite.call(this,x,y);
@@ -48708,13 +48711,15 @@ game_objects_Hook.prototype = $extend(game_objects_Collectible.prototype,{
 });
 var game_objects_Lotus = function(x,y) {
 	game_objects_Collectible.call(this,x,y);
-	this.loadGraphic("assets/images/Lotus.png",false,32,32);
 };
 $hxClasses["game.objects.Lotus"] = game_objects_Lotus;
 game_objects_Lotus.__name__ = "game.objects.Lotus";
 game_objects_Lotus.__super__ = game_objects_Collectible;
 game_objects_Lotus.prototype = $extend(game_objects_Collectible.prototype,{
-	__class__: game_objects_Lotus
+	setSprite: function() {
+		this.loadGraphic("assets/images/Lotus.png",false,32,32);
+	}
+	,__class__: game_objects_Lotus
 });
 var game_objects_Shield = function(x,y) {
 	game_objects_Collectible.call(this,x,y);
@@ -68711,7 +68716,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 132087;
+	this.version = 159311;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
