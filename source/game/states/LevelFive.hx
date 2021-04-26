@@ -3,7 +3,7 @@ package game.states;
 class LevelFive extends LevelState {
 	override public function create() {
 		super.create();
-		createLevel('0006_Level_5');
+		createLevel('0007_Level_6');
 	}
 
 	override public function gotoPreviousLevel() {
