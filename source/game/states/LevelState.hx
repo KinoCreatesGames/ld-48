@@ -73,7 +73,7 @@ class LevelState extends BaseTileState {
 		add(collectibleGrp);
 		add(wallGrp);
 		// add(packageGrp);
-		// add(playerHUD);
+		add(playerHUD);
 	}
 
 	public function createSounds() {
@@ -86,6 +86,7 @@ class LevelState extends BaseTileState {
 
 	public function createPlayer() {
 		player = new Player(0, 0, null);
+		player.health = getHealth();
 		var save = new FlxSave();
 		if (save.bind('position')) {
 			var position = save.data.position;
@@ -197,7 +198,7 @@ class LevelState extends BaseTileState {
 		entities.objects.iter((entity) -> {
 			switch (entity.name) {
 				case ENEMY:
-					var enemy = new Enemy(entity.x, entity.y,
+					var enemy = new Grunt(entity.x, entity.y,
 						getPoints(entity), null);
 					enemyGrp.add(enemy);
 				case CHEST:
@@ -236,10 +237,12 @@ class LevelState extends BaseTileState {
 			enemy.resetPosition();
 			plyr.takeDamage(1);
 		});
-		FlxG.collide(player, lvlGrp, (plyr:Player, lvl) -> {
-			plyr.moveToNextTile = false;
-			plyr.resetPosition();
-		});
+		if (lvlGrp.visible) {
+			FlxG.collide(player, lvlGrp, (plyr:Player, lvl) -> {
+				plyr.moveToNextTile = false;
+				plyr.resetPosition();
+			});
+		}
 		FlxG.collide(player, wallGrp, (plyr:Player, lvl) -> {
 			plyr.moveToNextTile = false;
 			plyr.resetPosition();
@@ -320,5 +323,13 @@ class LevelState extends BaseTileState {
 
 	public override function tilesetPath() {
 		return AssetPaths.TilesClean__png;
+	}
+
+	inline function getHealth() {
+		var healthSave = new FlxSave();
+		healthSave.bind('health');
+		var playerHealth = healthSave.data.health;
+		healthSave.close();
+		return playerHealth;
 	}
 }

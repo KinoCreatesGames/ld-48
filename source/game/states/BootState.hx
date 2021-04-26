@@ -6,6 +6,10 @@ class BootState extends FlxState {
 		var save = new FlxSave();
 		save.bind('position');
 		save.erase();
+		var healthSave = new FlxSave();
+		healthSave.bind('health');
+		healthSave.data.health = 3;
+		healthSave.close();
 		FlxG.switchState(new LevelOne());
 	}
 }

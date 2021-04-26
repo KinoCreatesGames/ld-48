@@ -58,7 +58,7 @@ class Player extends Actor {
 		var size = Globals.TILE_SIZE;
 		swordHitBox = new FlxSprite(pos.x, pos.y);
 		swordHitBox.makeGraphic(size, size, KColor.PRETTY_PINK);
-		FlxG.state.add(swordHitBox);
+		// FlxG.state.add(swordHitBox);
 	}
 
 	override public function update(elapsed:Float) {
@@ -187,5 +187,9 @@ class Player extends Actor {
 		this.health -= damage;
 		this.health = this.health.clampf(0, 10);
 		FlxG.camera.shake(0.1, 0.1);
+		var healthSave = new FlxSave();
+		healthSave.bind('health');
+		healthSave.data.health = this.health;
+		healthSave.close();
 	}
 }
