@@ -53,6 +53,8 @@ class LevelState extends BaseTileState {
 	public var holeGrp:FlxTypedGroup<Hole>;
 	public var chestGrp:FlxTypedGroup<Chest>;
 	public var wallGrp:FlxTypedGroup<FlxSprite>;
+	public var flyGroup:FlxTypedGroup<FlxSprite>;
+	public var lotusGroup:FlxTypedGroup<FlxSprite>;
 
 	// Sounds
 	public var pauseInSound:FlxSound;
@@ -77,8 +79,10 @@ class LevelState extends BaseTileState {
 		add(enemyBulletGrp);
 		add(holeGrp);
 		add(chestGrp);
-		add(collectibleGrp);
+		add(collectibleGrp); // Doesn't work with collectibles?
 		add(wallGrp);
+		add(flyGroup);
+		add(lotusGroup);
 		// add(packageGrp);
 		add(playerHUD);
 	}
@@ -120,6 +124,8 @@ class LevelState extends BaseTileState {
 		collectibleGrp = new FlxTypedGroup<Collectible>();
 		chestGrp = new FlxTypedGroup<Chest>();
 		holeGrp = new FlxTypedGroup<Hole>();
+		flyGroup = new FlxTypedGroup<FlxSprite>();
+		lotusGroup = new FlxTypedGroup<FlxSprite>();
 	}
 
 	override public function createUI() {
@@ -202,14 +208,21 @@ class LevelState extends BaseTileState {
 					holeGrp.add(hole);
 				case FLY:
 					var fly = new Fly(coords.x, coords.y);
+					var spr = new FlxSprite(coords.x, coords.y);
+					// spr.makeGraphic(32, 32, KColor.WHITE);
+					spr.loadGraphic(AssetPaths.fly__png, false, 32, 32);
 					collectibleGrp.add(fly);
+					flyGroup.add(fly);
+					flyGroup.add(spr);
+				// collectibleGrp.add(cast spr);
 				case WALL:
 					var wall = new FlxSprite(coords.x, coords.y);
 					wall.makeGraphic(32, 32, KColor.TRANSPARENT);
 					wallGrp.add(wall);
 				case LOTUS:
-					var lotus = new Lotus(coords.x, coords.y);
-					collectibleGrp.add(lotus);
+					var lotus = new FlxSprite(coords.x, coords.y);
+					lotus.loadGraphic(AssetPaths.Lotus__png);
+					lotusGroup.add(lotus);
 			}
 		}
 	}
@@ -250,6 +263,8 @@ class LevelState extends BaseTileState {
 		FlxG.overlap(player, collectibleGrp, playerTouchCollectible);
 		FlxG.overlap(player.swordHitBox, null, playerSwordTouchGrass);
 		FlxG.overlap(player, holeGrp, playerTouchHole);
+		FlxG.overlap(player, flyGroup, playerTouchFly);
+		FlxG.overlap(player, lotusGroup, playerTouchLotus);
 		FlxG.collide(player, enemyGrp, (plyr:Player, enemy:Enemy) -> {
 			plyr.moveToNextTile = false;
 			enemy.moveToNextTile = false;
@@ -306,6 +321,25 @@ class LevelState extends BaseTileState {
 				// Different Final Text Based on how much health
 				// you have left
 		}
+	}
+
+	public function playerTouchFly(player:Player, fly:FlxSprite) {
+		var save = new FlxSave();
+		save.bind('position');
+		var pos = fly.getPosition();
+		save.data.position = new FlxPoint(pos.x, pos.y);
+		save.close();
+		if (flySound.playing == false) {
+			flySound.play();
+		}
+		FlxG.camera.fade(KColor.BLACK, 1, false, () -> {
+			gotoPreviousLevel();
+			FlxG.camera.fade(KColor.BLACK, 1, true);
+		});
+	}
+
+	public function playerTouchLotus(player:Player, lotus:FlxSprite) {
+		completeLevel = true;
 	}
 
 	public function playerTouchHole(player:Player, hole:Hole) {

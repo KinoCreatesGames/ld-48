@@ -6,6 +6,8 @@ class Fly extends Collectible {
 	}
 
 	override public function setSprite() {
-		loadGraphic(AssetPaths.wing__png, false, 32, 32, true);
+		loadGraphic(AssetPaths.fly__png, false, 32, 32, true);
+		trace(AssetPaths.fly__png);
+		// makeGraphic(32, 32, KColor.WHITE);
 	}
 }

@@ -1,0 +1,13 @@
+{
+	"maps": [
+		{ "fileName": "0001_Level_0.tmx", "x": 0, "y": 0 },
+		{ "fileName": "0002_Failure.tmx", "x": 512, "y": 512 },
+		{ "fileName": "0003_Level_2.tmx", "x": 0, "y": 1024 },
+		{ "fileName": "0004_Level_1.tmx", "x": 0, "y": 512 },
+		{ "fileName": "0005_Level_4.tmx", "x": 0, "y": 1536 },
+		{ "fileName": "0006_Level_5.tmx", "x": 0, "y": 2048 },
+		{ "fileName": "0007_Level_6.tmx", "x": 0, "y": 2560 },
+		{ "fileName": "0008_Level_7.tmx", "x": 0, "y": 3072 }
+	],
+	"type": "world"
+}
